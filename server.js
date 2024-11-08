@@ -118,6 +118,20 @@ app.post('/create-appointment', async (req, res) => {
     }
 });
 
+app.post('/login', async (req, res) => {
+    try{
+        const { email, password } = req.body;
+        const connection = await mysql.createConnection(config);
+
+        const [rows] = await connection.query('SELECT role FROM User WHERE email = ? AND password = ?', [email, password]);
+
+        res.json(rows[0]);
+
+        connection.end();
+    } catch (err){
+        console.log('Error: ', err);
+    }
+});
 
 
 let server = app.listen(5000, function () {

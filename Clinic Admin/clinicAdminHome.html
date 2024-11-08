@@ -2,10 +2,12 @@
 <html>
 <head>
     <title>Hospital Management System</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="clinicAdmin.css">
 </head>
 <body>
-    <h1>Hospital Management System</h1>
+    <button type="button" onclick="window.location.href='../index.html'">Logout</button>
+    <h1>Clinic Admin Home</h1>
+    <h2 id="welcome-message">
     <nav>
         <ul>
             <li><a href="addPatient.html">Add Patient</a></li>
@@ -14,5 +16,10 @@
             <li><a href="viewStaffSchedule.html">View Staff Schedule</a></li>
         </ul>
     </nav>
+    <script>
+        const welcomeMessage = document.getElementById('welcome-message');
+        const urlParams = new URLSearchParams(window.location.search);
+        const fullName = urlParams.get('fullName');       
+    </script>
 </body>
 </html>
