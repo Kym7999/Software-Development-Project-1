@@ -187,6 +187,38 @@ app.post('/refills', async (req, res) => {
     }
 });
 
+app.get('/get-patient-by-id', async (req, res) => {
+    try {
+        const { id } = req.query; 
+        const connection = await mysql.createConnection(config);
+        const [rows] = await connection.query('SELECT * FROM Patients WHERE id = ?', [id]);
+        res.json(rows[0]);
+        connection.end();
+    } catch (err) {
+        console.log('Error: ', err);
+        res.status(500).json({ error: 'Internal Server Error' }); 
+    }
+});
+
+app.post('/update-patient', async (req, res) => {
+    try {
+        const { id, name, dob, address, phone, email, allergies } = req.body;
+        const connection = await mysql.createConnection(config);
+
+        const updateQuery = 'UPDATE Patients SET name = ?, dob = ?, address = ?, phone = ?, email = ?, allergies = ? WHERE id = ?';
+        const values = [name, dob, address, phone, email, allergies, id];
+
+        await connection.query(updateQuery, values);
+
+        res.json({ message: 'Patient updated successfully' });
+
+        connection.end();
+    } catch (err) {
+        console.log('Error: ', err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
 let server = app.listen(5000, function () {
     console.log('Server is listening at port 5000...');
 });

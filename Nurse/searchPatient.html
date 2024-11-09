@@ -2,50 +2,22 @@
 <html>
 <head>
   <title>Search Patient</title>
-  <link rel="stylesheet" href="nurse.css"> <!-- Link to nurse.css -->
-  <style>
-    .search-container {
-      margin: 20px;
-    }
-    .search-results {
-      display: none;
-      margin-top: 20px;
-    }
-    .result-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-  </style>
+  <link rel="stylesheet" href="nurse.css">
 </head>
 <body>
   <button type="button" onclick="window.location.href='nurseHome.html'">Back to Portal</button>
   <div class="search-container">
     <h1>Search Patient</h1>
 
-    <label for="search">Search by Name or Patient ID:</label>
-    <input type="text" id="search" name="search" placeholder="Enter patient name or ID" required>
-
-    <!-- Search button not fully implemented yet, only displays sample patient data -->
+    <label for="patientId">Search by Patient ID:</label>
+    <input type="text" id="patientId" name="patientId" placeholder="Enter Patient ID" required>
+    
     <button class="search-button" onclick="showResults()">Search</button>
-
-    <!-- I hard coded some sample patient data here, feel free to display the SQL query results here -->
+    
     <div class="search-results" id="results">
-      <h2>Results:</h2>
-      <div class="result-item">
-        <span>Patient Name: John Doe, ID: 12345</span>
-        <button onclick="window.location.href='patientDetails.html?id=12345'">View Patient Details</button>
-      </div>
-      <div class="result-item">
-        <span>Patient Name: Jane Smith, ID: 67890</span>
-        <button onclick="window.location.href='patientDetails.html?id=67890'">View Patient Details</button>
-      </div>
-      <div class="result-item">
-        <span>Patient Name: Bob Johnson, ID: 24680</span>
-        <button onclick="window.location.href='patientDetails.html?id=24680'">View Patient Details</button>
-      </div>
+      <h2>Results:</h2>      
     </div>
+
   </div>
 
   <!-- Link to the JavaScript file -->

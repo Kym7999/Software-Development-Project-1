@@ -3,81 +3,16 @@
 <head>
   <title>Patient Details</title>
   <link rel="stylesheet" href="nurse.css">
-  <style>
-    .details-container {
-      margin: 20px;
-    }
-    .details-field {
-      margin-bottom: 15px;
-    }
-    .details-field label {
-      font-weight: bold;
-      display: inline-block;
-      width: 150px;
-    }
-    .edit-button {
-      margin-left: 10px;
-      cursor: pointer;
-    }
-    .save-button {
-      display: none;
-      margin-left: 10px;
-      cursor: pointer;
-    }
-    .allergies-input {
-      display: none;
-    }
-    .success-message {
-      color: green;
-      font-weight: bold;
-      display: none;
-      margin-top: 10px;
-    }
-  </style>
 </head>
 <body>
   <button type="button" onclick="window.location.href='searchPatient.html'">Back to Search</button>
   <div class="details-container">
     <h1>Patient Details</h1>
 
-    <div class="details-field">
-      <label for="name">Name:</label>
-      <span id="name">John Doe</span>
-    </div>
-
-    <div class="details-field">
-      <label for="dob">Date of Birth:</label>
-      <span id="dob">January 1, 1980</span>
-    </div>
-
-    <div class="details-field">
-      <label for="address">Address:</label>
-      <span id="address">123 Main St, Toronto, ON</span>
-    </div>
-
-    <div class="details-field">
-      <label for="phone">Phone Number:</label>
-      <span id="phone">+1 (123) 456-7890</span>
-    </div>
-
-    <div class="details-field">
-      <label for="email">Email:</label>
-      <span id="email">johndoe@example.com</span>
-    </div>
-
-    <!-- Allergies field with inactive Edit buttons -->
-    <div class="details-field">
-      <label for="allergies">Allergies:</label>
-      <span id="allergies">Peanuts, Shellfish</span>
-      <button class="edit-button">Edit</button>
-    </div>
-
-    <!-- Success message placeholder -->
+    <div id="patient-details">
+      </div>
     <div id="successMessage" class="success-message">Allergies updated successfully!</div>
-
   </div>
-
-  <!-- Link to the JavaScript file -->
   <script src="patientDetails.js"></script>
 </body>
 </html>

@@ -177,3 +177,47 @@ button:hover {
         width: 80%;
     }
 }
+
+.details-container {
+    margin: 20px;
+  }
+  .details-field {
+    margin-bottom: 15px;
+  }
+  .details-field label {
+    font-weight: bold;
+    display: inline-block;
+    width: 150px;
+  }
+  .edit-button {
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  .save-button {
+    display: none;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  .allergies-input {
+    display: none;
+  }
+  .success-message {
+    color: green;
+    font-weight: bold;
+    display: none;
+    margin-top: 10px;
+  }
+
+  .search-container {
+    margin: 20px;
+  }
+  .search-results {
+    display: none;
+    margin-top: 20px;
+  }
+  .result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }

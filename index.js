@@ -38,6 +38,6 @@ loginForm.addEventListener('submit', async (event) => {
         }
 
     } catch(error){
-        alert('Error: ', error);
+        alert('Error: ' +  error);
     }    
 });
