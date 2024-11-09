@@ -1,10 +1,9 @@
+// Working
 const form = document.getElementById('createAppointment');
-
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    const patientId = document.getElementById('patientId').value;
-    // Need to create a staff table where we can get the doctorId
+    const patientId = document.getElementById('patientId').value;    
     const doctorId = document.getElementById('doctorId').value;
     const date = document.getElementById('date').value;
     const time = document.getElementById('time').value;

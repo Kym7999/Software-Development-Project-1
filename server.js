@@ -133,6 +133,59 @@ app.post('/login', async (req, res) => {
     }
 });
 
+app.put('/rescheduleappointment', async (req, res) => {
+    try{
+        const { appointmentId, newDate, newTime } = req.body;
+        const connection = await mysql.createConnection(config);
+
+        const updateQuery = 'UPDATE Appointment SET date = ?, time = ? WHERE id = ?';
+        const values = [newDate, newTime, appointmentId];
+
+        await connection.query(updateQuery, values);
+
+        res.json({ message: 'Appointment rescheduled successfully' });
+
+        connection.end();
+    } catch (err){
+        console.log('Error: ', err);
+    }
+});
+
+app.delete('/appointmentscancel', async (req, res) => {
+    try{
+        const { appointmentId } = req.body;
+        const connection = await mysql.createConnection(config);
+
+        const deleteQuery = 'DELETE FROM Appointment WHERE id = ?';
+        const values = [appointmentId];
+
+        await connection.query(deleteQuery, values);
+
+        res.json({ message: 'Appointment deleted successfully' });
+
+        connection.end();
+    } catch (err){
+        console.log('Error: ', err);
+    }
+});
+
+app.post('/refills', async (req, res) => {
+    try{
+        const { medicationName } = req.body;
+        const connection = await mysql.createConnection(config);
+
+        const insertQuery = 'INSERT INTO RefillRequests (medicationName) VALUES (?)';
+        const values = [medicationName];
+
+        await connection.query(insertQuery, values);
+
+        res.json({ message: 'Refill request sent successfully' });
+
+        connection.end();
+    } catch (err){
+        console.log('Error: ', err);
+    }
+});
 
 let server = app.listen(5000, function () {
     console.log('Server is listening at port 5000...');
