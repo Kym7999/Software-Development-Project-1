@@ -1,63 +1,180 @@
+/* General styling */
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    font-family: 'Arial', sans-serif;
+    background-image: url('backgroundimage.png'); /* Adjust the path to your background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     margin: 0;
-    background-color: #f9f9f9;
+    padding: 20px;
     color: #333;
 }
 
-h1, h2 {
-    color: #007bff;
-    margin-bottom: 20px;
+/* Header and main title */
+h1 {
+    color: #ffffff;
+    background-color: #2980b9;
+    padding: 15px 20px;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 28px;
 }
 
+/* Container for the main buttons */
+.patient-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Button styling */
+/* Button styling */
 button {
-    display: inline-block;
-    width: 200px;
-    padding: 10px;
-    margin: 10px 0;
-    font-size: 1em;
-    background-color: #007bff;
+    width: 100%; /* Make buttons full width */
+    max-width: 300px; /* Increase max width */
+    background-color: #3498db;
     color: white;
     border: none;
+    padding: 18px; /* Increase padding */
     border-radius: 5px;
+    font-size: 18px; /* Increase font size */
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
     text-align: center;
+    margin: 15px 0; /* Add more space between buttons */
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #2980b9;
+    transform: scale(1.07); /* Slightly larger scale on hover */
 }
 
+
+/* Form styling */
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80%;
-    max-width: 400px;
-    background-color: #fff;
-    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+    gap: 15px;
+    background-color: #ffffff;
+    padding: 30px;
     border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 label {
-    font-size: 1em;
-    margin-top: 10px;
-    margin-bottom: 5px;
-    color: #555;
-    text-align: left;
-    width: 100%;
+    font-weight: bold;
+    color: #2980b9;
+    font-size: 16px;
+    align-self: flex-start;
 }
 
-input[type="text"], input[type="date"], input[type="time"] {
+input[type="text"],
+input[type="date"],
+input[type="time"] {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
-    font-size: 1em;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Submit button inside forms */
+form button[type="submit"] {
+    width: 100%;
+    background-color: #2980b9;
+    padding: 12px;
+    font-size: 16px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+form button[type="submit"]:hover {
+    background-color: #3498db;
+}
+
+/* Responsive styling */
+@media screen and (max-width: 768px) {
+    .patient-container, form {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 24px;
+        padding: 10px;
+    }
+
+    button, form button {
+        font-size: 14px;
+        padding: 12px;
+    }
+}
+
+/* Welcome message styling */
+/* Welcome text styling */
+.welcome-text {
+    font-size: 1.2em; /* Increase font size */
+    color: #2980b9; /* Match with other blue elements */
+    text-align: center;
+    margin-top: -10px; /* Adjust spacing */
+    font-weight: 500;
+    padding-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* Centering the title */
+h2 {
+    text-align: center;
+    color: #2980b9;
+    margin-bottom: 20px;
+}
+
+/* Centering the form container */
+form {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto; /* Center align the form */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* General body styling with pattern background */
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('pattern.png'); /* Replace with your pattern image path */
+    background-color: #e6f7ff; /* Light blue background color */
+    background-size: 150px 150px;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+/* Centering the title */
+h2 {
+    text-align: center;
+    color: #2980b9;
+    margin-bottom: 20px;
+}
+
+/* Centering the form container */
+form {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
