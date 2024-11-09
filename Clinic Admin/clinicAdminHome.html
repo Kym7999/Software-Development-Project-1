@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hospital Management System</title>
+    <link rel="stylesheet" href="clinicAdmin.css">
+</head>
+<body>
+    <button type="button" onclick="window.location.href='../index.html'">Logout</button>
+    <h1>Clinic Admin Home</h1>
+    <h2 id="welcome-message">
+    <nav>
+        <ul>
+            <li><a href="addPatient.html">Add Patient</a></li>
+            <li><a href="prescribeMedication.html">Prescribe Medication</a></li>
+            <li><a href="viewMedicationStock.html">View Medication Stock</a></li>
+            <li><a href="viewStaffSchedule.html">View Staff Schedule</a></li>
+        </ul>
+    </nav>
+    <script>
+        const welcomeMessage = document.getElementById('welcome-message');
+        const urlParams = new URLSearchParams(window.location.search);
+        const fullName = urlParams.get('fullName');       
+    </script>
+</body>
+</html>

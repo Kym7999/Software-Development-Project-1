@@ -1,194 +1,24 @@
-
-<!--  
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clinic Management App</title>
+    <title>Login Page</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Clinic Management System</h1>
-    </header>
-    <main>
-        <div class="widget-container">
-            <div class="widget" id="doctor">
-                <h2>Doctor</h2>
-                <button onclick="showInfo('doctor')">View Info</button>
-            </div>
-            <div class="widget" id="nurse">
-                <h2>Nurse</h2>
-                <button onclick="showInfo('nurse')">View Info</button>
-            </div>
-            <div class="widget" id="admin">
-                <h2>Clinic Administrator</h2>
-                <button onclick="showInfo('admin')">View Info</button>
-            </div>
-            <div class="widget" id="receptionist">
-                <h2>Receptionist</h2>
-                <button onclick="showInfo('receptionist')">View Info</button>
-            </div>
-            <div class="widget" id="patient">
-                <h2>Patient</h2>
-                <button onclick="showInfo('patient')">View Info</button>
-            </div>
-            <div class="widget" id="health-coach">
-                <h2>Health Coach</h2>
-                <button onclick="showInfo('health-coach')">View Info</button>
-            </div>
-            <div class="widget" id="pharmacist">
-                <h2>Pharmacist</h2>
-                <button onclick="showInfo('pharmacist')">View Info</button>
-            </div>
-        </div>
-        <div id="info-modal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeInfo()">&times;</span>
-                <h2 id="modal-title"></h2>
-                <p id="modal-description"></p>
-            </div>
-        </div>
-    </main>
-    <script src="script.js"></script>
-</body>
-</html>
--->
+    <div class="login-container">
+        <h1>Login</h1>
+        <form id="loginForm">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required>
 
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
 
-<!----------------------------------------------------------------------------------------------------------------------->
-<!--
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clinic Management App</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1>Clinic Management System</h1>
-    </header>
-    <main>
-        <div class="widget-container">
-            <div class="widget" id="doctor">
-                <h2>Doctor</h2>
-                <button onclick="showInfo('doctor')">View Info</button>
-            </div>
-            <div class="widget" id="nurse">
-                <h2>Nurse</h2>
-                <button onclick="showInfo('nurse')">View Info</button>
-            </div>
-            <div class="widget" id="admin">
-                <h2>Clinic Administrator</h2>
-                <button onclick="showInfo('admin')">View Info</button>
-            </div>
-            <div class="widget" id="receptionist">
-                <h2>Receptionist</h2>
-                <button onclick="showInfo('receptionist')">View Info</button>
-            </div>
-            <div class="widget" id="patient">
-                <h2>Patient</h2>
-                <button onclick="showInfo('patient')">View Info</button>
-            </div>
-            <div class="widget" id="health-coach">
-                <h2>Health Coach</h2>
-                <button onclick="showInfo('health-coach')">View Info</button>
-            </div>
-            <div class="widget" id="pharmacist">
-                <h2>Pharmacist</h2>
-                <button onclick="showInfo('pharmacist')">View Info</button>
-            </div>
-        </div>
-        <div id="info-modal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeInfo()">&times;</span>
-                <h2 id="modal-title"></h2>
-                <p id="modal-description"></p>
-            </div>
-        </div>
-    </main>
-    <script src="script.js"></script>
-</body>
-</html>
--->
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clinic Management App</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1>Clinic Management System</h1>
-    </header>
-    <main>
-        <!-- Widget container with role options -->
-        <div class="widget-container">
-            <div class="widget" id="doctor">
-                <h2>Doctor</h2>
-                <button onclick="showSignIn('doctor')">I am a doctor</button>
-            </div>
-            <div class="widget" id="nurse">
-                <h2>Nurse</h2>
-                <button onclick="showSignIn('nurse')">I am a nurse</button>
-            </div>
-            <div class="widget" id="admin">
-                <h2>Clinic Administrator</h2>
-                <button onclick="showSignIn('admin')">I am the clinic admin</button>
-            </div>
-            <div class="widget" id="receptionist">
-                <h2>Receptionist</h2>
-                <button onclick="showSignIn('receptionist')">I am a receptionist</button>
-            </div>
-            <div class="widget" id="patient">
-                <h2>Patient</h2>
-                <button onclick="showSignIn('patient')">I am a patient</button>
-            </div>
-            <div class="widget" id="health-coach">
-                <h2>Health Coach</h2>
-                <button onclick="showSignIn('health-coach')">I am a Health Coach</button>
-            </div>
-            <div class="widget" id="pharmacist">
-                <h2>Pharmacist</h2>
-                <button onclick="showSignIn('pharmacist')">I am a Pharmacist</button>
-            </div>
-        </div>
-
-        <!-- The Sign-In Modal (hidden initially) -->
-        <div id="info-modal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeInfo()">&times;</span>
-                <h3 id="modal-title">Sign-In</h3>
-                <input type="text" id="user-id" placeholder="Enter User ID" required>
-                <input type="password" id="password" placeholder="Enter Password" required>
-                <button onclick="signIn()">Sign In</button>
-            </div>
-        </div>
-
-        <!-- Doctor Portal (hidden initially) -->
-        <div id="doctor-portal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeDoctorPortal()">&times;</span>
-                <h3>Doctor Portal</h3>
-                <div class="widget" id="patient-management">
-                    <h4>Patient Management</h4>
-                    <button onclick="showPatientForm()">Enter</button>
-                </div>
-                <div class="widget" id="medication-management">
-                    <h4>Medication Management</h4>
-                    <button onclick="showMedicationForm()">Enter</button>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <script src="script.js"></script>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <script src="index.js"></script>
 </body>
 </html>
