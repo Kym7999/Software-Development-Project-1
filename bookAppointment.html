@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Appointment</title>
+    <link rel="stylesheet" href="patient.css">
+</head>
+<body>
+    <button onclick="window.location.href='patientHome.html'">Back to Home</button>
+    <h2>Book an Appointment</h2>
+    <form id="bookAppointmentForm">
+        <label for="doctor">Doctor:</label>
+        <input type="text" id="doctor" required>
+        
+        <label for="date">Date:</label>
+        <input type="date" id="date" required>
+        
+        <label for="time">Time:</label>
+        <input type="time" id="time" required>
+        
+        <button type="submit">Book Appointment</button>
+    </form>
+    <script src="patient.js"></script>
+</body>
+</html>
