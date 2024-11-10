@@ -267,6 +267,20 @@ app.post('/add-medication', async (req, res) => {
     }
 });
 
+app.get('/get-patient-medical-history', async (req, res) => {
+    try {
+        const { id } = req.query; 
+        const connection = await mysql.createConnection(config);
+        const [rows] = await connection.query('SELECT * FROM MedicalHistory WHERE patient_Id = ?', [id]);
+        res.json(rows);
+        connection.end();
+    } catch (err) {
+        console.log('Error: ', err);
+        res.status(500).json({ error: 'Internal Server Error' }); 
+    }
+});
+
+
 let server = app.listen(5000, function () {
     console.log('Server is listening at port 5000...');
 });

@@ -1,3 +1,4 @@
+loadPatients();
 const form = document.getElementById('patientForm');
 form.addEventListener('submit', async (event) => {   
     event.preventDefault();
@@ -152,7 +153,6 @@ async function loadPatients(){
         console.error('Error:', error);
       }
 }
-loadPatients();
 
 async function showPatient(){
     const option = document.getElementById('patient').value;
@@ -174,4 +174,33 @@ async function showPatient(){
     phoneInput.value = patient.phone;
     emailInput.value = patient.email;
     allergiesInput.value = patient.allergies;
+}
+
+// Working
+async function showMedicalHistory(){
+    const option = document.getElementById('patient').value;
+    const patientId = option.split("ID: ");
+    const response = await fetch(`http://localhost:5000/get-patient-medical-history?id=${patientId}`);
+    const history = await response.json();    
+
+    displayMedicalHistory(history);
+}
+
+function displayMedicalHistory(history) {
+    const historyTable = document.getElementById('historyTable');
+
+    history.forEach(record => {
+        const row = historyTable.insertRow();
+        const dateCell = row.insertCell(0);
+        const diagnosisCell = row.insertCell(1);
+        const symptomsCell = row.insertCell(2);
+        const treatmentCell = row.insertCell(3);
+        const notesCell = row.insertCell(4);
+
+        dateCell.textContent = record.date.split('T')[0];
+        diagnosisCell.textContent = record.diagnosis;
+        symptomsCell.textContent = record.symptoms;
+        treatmentCell.textContent = record.treatment;
+        notesCell.textContent = record.notes;
+    });
 }
