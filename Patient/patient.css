@@ -1,3 +1,11 @@
+/* Centering the title */
+h2 {
+    text-align: center;
+    color: #2980b9;
+    margin-bottom: 20px;
+}
+
+
 /* General styling */
 body {
     font-family: 'Arial', sans-serif;
