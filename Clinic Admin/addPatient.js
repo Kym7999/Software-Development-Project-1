@@ -9,6 +9,11 @@ form.addEventListener('submit', async (event) => {
   const phone = document.getElementById('phone').value;
   const email = document.getElementById('email').value;
 
+  if (age < 0 || age > 120) {
+    alert("Invalid age.");
+    return;
+  }
+
   const date = {
     name,
     age,

@@ -34,6 +34,18 @@ app.get('/get-patients', async (req, res) => {
     }
 });
 
+app.get('/patients-id-name', async (req, res) => {
+    try {
+        const connection = await mysql.createConnection(config);
+        const [rows] = await connection.query('SELECT id, name FROM Patients');
+        res.json(rows);
+        connection.end();
+    } catch (err) {
+        console.error('Error:', err);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
 // Add a new patient
 app.post('/add-patient', async (req, res) => {
     const { name, dob, address, phone, email, allergies } = req.body;    
@@ -216,6 +228,42 @@ app.post('/update-patient', async (req, res) => {
     } catch (err) {
         console.log('Error: ', err);
         res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
+app.delete('/deletepatient', async (req, res) => {
+    try{
+        const { patientId } = req.body;
+        const connection = await mysql.createConnection(config);
+
+        const deleteQuery = 'DELETE FROM Patients WHERE id = ?';
+        const values = [patientId];
+
+        await connection.query(deleteQuery, values);
+
+        res.json({ message: 'Patient deleted successfully' });
+
+        connection.end();
+    } catch (err){
+        console.log('Error: ', err);
+    }
+});
+
+app.post('/add-medication', async (req, res) => {
+    try{
+        const { name, type, dosage, form, stock } = req.body;
+        const connection = await mysql.createConnection(config);
+
+        const insertQuery = 'INSERT INTO Medications (name, type, dosage, form, stock) VALUES (?, ?, ?, ?, ?)';
+        const values = [name, type, dosage, form, stock];
+
+        await connection.query(insertQuery, values);
+
+        res.json({ message: 'Medication added successfully' });
+
+        connection.end();
+    } catch (err){
+        console.log('Error: ', err);
     }
 });
 

@@ -1,7 +1,8 @@
 const form = document.getElementById('patientForm');
 form.addEventListener('submit', async (event) => {   
     event.preventDefault();
-
+    const option = document.getElementById('patient').value;
+    const id = option.split("ID: ")[0];
     const name = document.getElementById('name').value;
     const dob = document.getElementById('dob').value;
     const address = document.getElementById('address').value;
@@ -10,6 +11,7 @@ form.addEventListener('submit', async (event) => {
     const allergies = document.getElementById('allergies').value;    
 
     const patientData = {
+        id,
         name,
         dob,
         address,
@@ -19,7 +21,7 @@ form.addEventListener('submit', async (event) => {
     }
 
     try{
-        const response = await fetch('http://localhost:5000/add-patient', {
+        const response = await fetch('http://localhost:5000/update-patient', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -27,9 +29,9 @@ form.addEventListener('submit', async (event) => {
             body: JSON.stringify(patientData)
         });    
         if(response.ok){
-            alert('Patient added successfully');
+            alert('Patient updated successfully');
         } else {
-            alert('Error adding patient');
+            alert('Error updating patient');
         }
     } catch(error){
         alert('Error: ', error);
@@ -37,11 +39,24 @@ form.addEventListener('submit', async (event) => {
     resetForm();
 });
 
-// Function to delete a patient (for simplicity, just log deletion for now)
-function deletePatient() {
-    console.log("Deleting Patient (most recent entry for now)"); // Just a placeholder
+// Function to delete a patient (Working)
+async function deletePatient() {      
+    const patientId = document.getElementById('patientId').value;
+    const id = { patientId };
+    try {
+        const response = await fetch('http://localhost:5000/deletepatient', {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(id)
+        });
 
-    // Reset the form
+        if (response.ok){
+            alert('Patient deleted successfully');
+            patientId.value = '';
+        } else alert('Error deleting patient');
+    } catch (error) {
+        console.error('Error:', error);
+    }    
     resetForm();
 }
 
@@ -58,15 +73,43 @@ function resetForm() {
 }
 
 
-// Function to add a medication (temporary function for now)
-function addMedication() {
-    const medicationName = document.getElementById('med-name').value;
+// Function to add a medication (Working)
+async function addMedication() {
+    const name = document.getElementById('med-name').value;
     const type = document.getElementById('med-type').value;
     const dosage = document.getElementById('med-dosage').value;
     const form = document.getElementById('med-form').value;
+    const stock = document.getElementById('med-stock').value;
+    const allowedTypes = ["tablet", "liquid", "injection"];
+    if (!allowedTypes.includes(form.toLowerCase())) {
+      alert("Invalid medication type.");
+      return;
+    }
 
-    // For now, log the medication data to the console
-    console.log(`Adding Medication: ${medicationName}, ${type}, ${dosage}, ${form}`);
+    const medicationData = {
+        name,
+        type,
+        dosage,
+        form,
+        stock
+    }
+    
+    try{
+        const response = await fetch('http://localhost:5000/add-medication', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(medicationData)
+        });    
+        if(response.ok){
+            alert('Medication added successfully');
+        } else {
+            alert('Error adding medication');
+        }
+    } catch(error){
+        alert('Error: ', error);
+    }
 
     // Reset the form
     resetMedicationForm();
@@ -83,4 +126,52 @@ function resetMedicationForm() {
 // Close the modal
 function closeInfo() {
     document.getElementById('info-modal').style.display = "none";
+}
+
+async function loadPatients(){
+    try {
+        const response = await fetch('http://localhost:5000/patients-id-name');
+        const patients = await response.json();
+      
+        const options = patients.map(patient => {
+          return {
+            value: patient.id,
+            text: `${patient.name}, ID: ${patient.id}`
+          };
+        });
+      
+        const patientSelect = document.getElementById('patient');
+        options.forEach(option => {
+          const newOption = document.createElement('option');
+          newOption.value = option.value;
+          newOption.text = option.text;
+          patientSelect.appendChild(newOption);
+        });
+      
+      } catch (error) {
+        console.error('Error:', error);
+      }
+}
+loadPatients();
+
+async function showPatient(){
+    const option = document.getElementById('patient').value;
+    const patientId = option.split("ID: ");
+    const response = await fetch(`http://localhost:5000/get-patient-by-id?id=${patientId}`);
+    const patient = await response.json();    
+
+    const nameInput = document.getElementById('name');
+    const dobInput = document.getElementById('dob');
+    const addressInput = document.getElementById('address');
+    const phoneInput = document.getElementById('phone');
+    const emailInput = document.getElementById('email');
+
+    const allergiesInput = document.getElementById('allergies');
+    
+    nameInput.value = patient.name;
+    dobInput.value = patient.dob;
+    addressInput.value = patient.address;
+    phoneInput.value = patient.phone;
+    emailInput.value = patient.email;
+    allergiesInput.value = patient.allergies;
 }
