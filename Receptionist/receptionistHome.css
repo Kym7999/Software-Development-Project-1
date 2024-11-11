@@ -1,0 +1,134 @@
+
+
+/* General Styling */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('backgroundimage2.png'); /* Background for the entire page */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+/* Logout Button Styling */
+button[type="button"] {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+button[type="button"]:hover {
+    background-color: #2980b9;
+}
+
+/* Page Title Styling */
+
+    
+h1 {
+    font-size: 2em;
+    text-align: center;
+    margin-top: -350px;  
+    margin-bottom: 350px;  
+    position: relative;   /* Enables relative positioning */
+    left: 360px;          
+}
+
+    
+
+
+.title-overlay {
+    color: #3498db; /* Blue text */
+    background-color: white; /* White background */
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+
+/** Receptionist Container 
+.receptionist-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 50px;
+    padding: 0 20px;
+}
+*/
+
+
+
+/* Receptionist Container */
+.receptionist-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;  /* Vertically centers the widgets */
+    gap: 20px;
+    margin-top: 150px;  /* Increase the top margin to move widgets down */
+    padding: 0 20px;
+    min-height: 80vh;  /* Ensures the container takes enough height for vertical centering */
+}
+
+
+/* Widget Styling */
+.widget {
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 40px; /* Ensures text overlay sits above the button */
+}
+
+.patient-widget {
+    background-image: url('patientmanagement.png'); /* Background image for patient widget */
+}
+
+.appointment-widget {
+    background-image: url('appointment.png'); /* Background image for appointment widget */
+}
+
+/* Overlay Text Styling */
+.overlay-text {
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay background */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 1.5em;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+    margin: 0;
+}
+
+/* Button Styling */
+.widget button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 1em;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative;
+    z-index: 2;
+}
+
+.widget button:hover {
+    background-color: #2980b9;
+}

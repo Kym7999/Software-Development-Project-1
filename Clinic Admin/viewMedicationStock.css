@@ -1,0 +1,66 @@
+
+
+/* General Styling */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('backgroundimage2.png'); /* Similar background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* White Overlay Container */
+.content-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+    width: 90%; /* Adjusts the width with space on the left and right */
+    max-width: 1000px;
+    padding: 20px;
+    min-height: 100vh; /* Full viewport height */
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Back Button Styling */
+button[type="button"] {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+button[type="button"]:hover {
+    background-color: #2980b9;
+}
+
+/* Page Title Styling */
+h1 {
+    color: #2980b9;
+    font-size: 1.8em;
+    background-color: rgba(255, 255, 255, 0.8); /* White overlay around text */
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 0;
+}
+
+/* Medication List Styling */
+#medicationList {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    text-align: left;
+}

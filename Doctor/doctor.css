@@ -1,29 +1,59 @@
-/* General body styles */
+/* General body styles 
 body {
     font-family: 'Arial', sans-serif;
-    background-image: url('backgroundimage.png'); /* Add your image path here */
+    background-image: url('backgroundimage.png'); 
     background-size: 150vw 150vh;
     background-position: center;
     background-repeat: no-repeat;
     margin: 0;
-    padding: 20px;
-    color: #333; /* Adjust text color for better contrast */
+    padding: 0;
+    color: #333; 
 }
-
-/* Header styles */
+*/
+/**
 header {
     display: flex;
     justify-content: center;
     margin-bottom: 40px;
 }
 
-h1 {
-    color: #ffffff;
-    background-color: #2980b9;
-    padding: 10px 20px;
-    text-align: center;
-    border-radius: 5px;
+*/
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('backgroundimage2.png');
+    background-size: cover; /* Ensures the image covers the entire page */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
 }
+
+/* Header container styles */
+.header-container {
+    background-color: #2980b9;
+    width: 100vw; /* Viewport width to cover the screen fully */
+    margin: 0 auto; /* Centers the container */
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Prevents horizontal overflow */
+    margin-left: -540px;
+}
+
+/* Header text styling */
+.header-container h1 {
+    color: #ffffff;
+    font-size: 2em;
+    margin: 0;
+    padding: 20px 0; /* Add padding to increase header height */
+    text-align: center;
+    width: 100%; /* Full width to span container evenly */
+    box-sizing: border-box;
+}
+
 
 /* Widget container and widget styles */
 .widget-container {
@@ -52,9 +82,15 @@ h1 {
 }
 
 h2 {
-    color: #2980b9;
-    margin-bottom: 15px;
+    background-color: #ffffff; /* White background */
+    color: #2980b9; /* Original blue text color */
+    padding: 10px 20px; 
+    border-radius: 8px; 
+    display: inline-block; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+    margin-bottom: 15px; /* Keeps spacing below the h2 element */
 }
+
 
 button {
     background-color: #3498db;
@@ -224,3 +260,63 @@ button:hover {
     margin: auto;
 }
 
+
+/* Updated Styling */
+#patient-management {
+    background-image: url('patientmanagement.png');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    position: relative; /* Allows positioning of overlay */
+    color: #fff; /* Sets the text color to white for contrast */
+}
+
+
+#patient-management h3 {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block; /* Ensures overlay fits around text */
+    color: #fff; 
+}
+
+
+
+#medication-management {
+    background-image: url('medicationmanagement.png');
+    background-size: cover; /* Ensures the image covers the widget */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    position: relative;
+    color: #fff; 
+}
+
+
+
+#medication-management h3 {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+    color: white; /* White text for contrast */
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block; 
+}
+
+
+
+/* Medical History Widget Styling */
+#medical-history {
+    background-image: url('medicalhistory.png');
+    background-size: cover; /* Ensures the image covers the widget */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    position: relative; /* Allows positioning of overlay */
+    color: #fff; /* Sets the text color to white for contrast */
+}
+
+#medical-history h3 {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent dark overlay */
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block; /* Ensures overlay fits around text */
+    color: #fff; /* White text for readability */
+}

@@ -1,0 +1,98 @@
+
+
+/* General Styling */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('backgroundimage2.png'); /* Similar background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form Container Styling */
+.form-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Back Button Styling */
+button[type="button"] {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+button[type="button"]:hover {
+    background-color: #2980b9;
+}
+
+/* Page Title Styling */
+h1 {
+    color: #2980b9;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* White overlay around text */
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Input and Select Fields Styling */
+input[type="text"],
+select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+/* Add Medication Button Styling */
+#addMedicationToPatient {
+    width: 100%;
+    background-color: #3498db;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+#addMedicationToPatient:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+    }
+    button {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+}
