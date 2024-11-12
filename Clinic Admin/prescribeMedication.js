@@ -72,6 +72,11 @@ addMedicationToPatient.addEventListener('click', () => {
             },
             body: JSON.stringify({ patientId: selectedPatientID, medicationId: selectedMedicationID })
             });
+            if(!response.ok){
+                alert('Prescribed successfully')
+            } else {
+                alert('Could not prescribe medication')
+            }
         } catch(error){
             alert('Error: ', error);
         }

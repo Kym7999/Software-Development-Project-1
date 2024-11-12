@@ -1,11 +1,11 @@
 // NOT YET IMPLEMENTED: search button functionality - the execution of SQL query
 // and display results in the "search-results" div
 
-async function showResults() {
+async function showResults() {  
   const patientId = document.getElementById('patientId');
-  const response = await fetch(`http://localhost:5000/get-patient-by-id?id=${patientId.value}`);
-    const patient = await response.json();      
-
+  try{
+    const response = await fetch(`http://localhost:5000/get-patient-by-id?id=${patientId.value}`);
+    const patient = await response.json();    
     const resultDiv = document.getElementById('results');       
     resultDiv.style.display = 'block';
     const resultItem = document.createElement('div');
@@ -24,6 +24,10 @@ async function showResults() {
     resultItem.appendChild(patientInfo);
     resultItem.appendChild(viewDetailsButton);
     resultDiv.appendChild(resultItem);    
-  }
+  } catch (err){
+    alert('No patient found')
+  }     
+  
+}
   
   

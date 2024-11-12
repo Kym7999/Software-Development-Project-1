@@ -4,22 +4,19 @@ form.addEventListener('submit', async (event) => {
   event.preventDefault();
 
   const name = document.getElementById('name').value;
-  const age = document.getElementById('age').value;
+  const dob = document.getElementById('dob').value;
   const address = document.getElementById('address').value;
   const phone = document.getElementById('phone').value;
   const email = document.getElementById('email').value;
-
-  if (age < 0 || age > 120) {
-    alert("Invalid age.");
-    return;
-  }
-
-  const date = {
+  const allergies = document.getElementById('allergies').value;
+  
+  const patientData = {
     name,
-    age,
+    dob,
     address,
     phone,
-    email
+    email,
+    allergies
   };
 
   try{
@@ -28,7 +25,7 @@ form.addEventListener('submit', async (event) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(date)
+      body: JSON.stringify(patientData)
     });
 
     if(response.ok){

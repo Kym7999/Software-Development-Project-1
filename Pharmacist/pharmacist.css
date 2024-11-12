@@ -1,0 +1,85 @@
+/* General styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('backgroundimage.png'); /* Adjust the path to your background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+/* Header and main title */
+h1 {
+    color: #ffffff;
+    background-color: #2980b9;
+    padding: 15px 20px;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 28px;
+}
+
+/* Container for the main buttons */
+.pharmacist-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Button styling */
+/* Button styling */
+button {
+    width: 100%; /* Make buttons full width */
+    max-width: 300px; /* Increase max width */
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 18px; /* Increase padding */
+    border-radius: 5px;
+    font-size: 18px; /* Increase font size */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    text-align: center;
+    margin: 15px 0; /* Add more space between buttons */
+}
+
+button:hover {
+    background-color: #2980b9;
+    transform: scale(1.07); /* Slightly larger scale on hover */
+}
+
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+    gap: 15px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+label {
+    font-weight: bold;
+    color: #2980b9;
+    font-size: 16px;
+    align-self: flex-start;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}

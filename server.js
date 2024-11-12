@@ -80,14 +80,28 @@ app.get('/get-medications', async (req, res) => {
     }
 });
 
+// Get medications by id
+app.get('/get-medications-by-id', async (req, res) => {
+    try {
+        const { id } = req.query; 
+        const connection = await mysql.createConnection(config);
+        const [rows] = await connection.query('SELECT * FROM Medications WHERE id = ?', [id]);
+        res.json(rows);
+        connection.end();
+    } catch (err) {
+        console.error('Error:', err);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
 // Add Medication to Patient's record
 app.post('/add-medication-to-patient', async (req, res) => {
     try{
         const { patientId, medicationId } = req.body; 
         const connection = await mysql.createConnection(config);
 
-        const insertQuery = 'INSERT INTO Prescriptions (patientId, medicationId) VALUES (?, ?)';
-        const values = [patientId, medicationId];
+        const insertQuery = 'INSERT INTO Prescriptions (patientId, medicationId, status) VALUES (?, ?, ?)';
+        const values = [patientId, medicationId, 'Pending'];
 
         await connection.query(insertQuery, values);
 
@@ -279,6 +293,37 @@ app.get('/get-patient-medical-history', async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' }); 
     }
 });
+
+app.get('/getOrders', async (req, res) => {
+    try{
+        const connection = await mysql.createConnection(config);
+        const [rows] = await connection.query('SELECT * FROM Prescriptions WHERE status != ?', ['Confirmed']);
+        res.json(rows);
+        connection.end();
+    } catch (err) {
+        console.log('Error: ', err);
+        res.status(500).json({error: 'Internal Server Error'});
+    }
+})
+
+app.put('/update-prescription-status', async (req, res) => {
+    try{
+        const { patientId, medicationId, status } = req.body;
+        const connection = await mysql.createConnection(config);
+
+        const updateQuery = 'UPDATE Prescriptions SET status = ? WHERE patientId = ? AND medicationId = ?';
+        const values = [status, patientId, medicationId];
+
+        await connection.query(updateQuery, values);
+
+        res.json({ message: 'Prescription updated successfully' });
+
+        connection.end();
+    } catch (err){
+        console.log('Error: ', err);
+    }
+});
+
 
 
 let server = app.listen(5000, function () {

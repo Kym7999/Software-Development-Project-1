@@ -69,6 +69,7 @@ h1 {
 .receptionist-container {
     display: flex;
     justify-content: center;
+    flex-direction: row;
     align-items: center;  /* Vertically centers the widgets */
     gap: 20px;
     margin-top: 150px;  /* Increase the top margin to move widgets down */
