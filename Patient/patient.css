@@ -8,14 +8,20 @@ h2 {
 
 /* General styling */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Nunito', sans-serif;
     background-image: url('backgroundimage.png'); /* Adjust the path to your background image */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     margin: 0;
     padding: 20px;
+    padding-top: 10px;
+    padding-bottom: 0px;
     color: #333;
+}
+
+input{
+    font-family: 'Nunito', sans-serif;
 }
 
 /* Header and main title */
@@ -26,9 +32,10 @@ h1 {
     text-align: center;
     border-radius: 8px;
     font-size: 28px;
+    margin-top: 0px;
 }
 
-/* Container for the main buttons */
+/* Container for the main #goToButtons */
 .patient-container {
     display: flex;
     flex-direction: column;
@@ -36,10 +43,10 @@ h1 {
     gap: 20px;
 }
 
-/* Button styling */
-/* Button styling */
-button {
-    width: 100%; /* Make buttons full width */
+/* #goToButton styling */
+/* #goToButton styling */
+#goToButton {
+    width: 100%; /* Make #goToButtons full width */
     max-width: 300px; /* Increase max width */
     background-color: #3498db;
     color: white;
@@ -50,10 +57,10 @@ button {
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
     text-align: center;
-    margin: 15px 0; /* Add more space between buttons */
+    margin: 5px 0; /* Add more space between #goToButtons */
 }
 
-button:hover {
+#goToButton:hover {
     background-color: #2980b9;
     transform: scale(1.07); /* Slightly larger scale on hover */
 }
@@ -90,4 +97,19 @@ input[type="time"] {
     border: 1px solid #ddd;
     border-radius: 5px;
     box-sizing: border-box;
+}
+
+button {
+    background-color: #3498db;
+    font-family: 'Nunito', sans-serif;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
 }

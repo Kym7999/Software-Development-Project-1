@@ -1,6 +1,6 @@
 /* General styling */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Nunito', sans-serif;
     background-image: url('backgroundimage.png'); /* Adjust the path to your background image */
     background-size: cover;
     background-position: center;
@@ -28,9 +28,13 @@ h1 {
     gap: 20px;
 }
 
-/* Button styling */
+h2{
+    text-align: center;
+}
+
 /* Button styling */
 button {
+    font-family: 'Nunito', sans-serif;
     width: 100%; /* Make buttons full width */
     max-width: 300px; /* Increase max width */
     background-color: #3498db;

@@ -1,6 +1,6 @@
 /* General body styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Nunito', sans-serif;
     background-image: url('backgroundimage.png');
     background-size: 150vw 150vh;
     background-position: center;
@@ -60,6 +60,7 @@ body {
   button {
     background-color: #3498db;
     color: white;
+    font-family: 'Nunito', sans-serif;
     border: none;
     padding: 12px 20px;
     border-radius: 5px;
@@ -218,4 +219,8 @@ body {
         font-size: 14px;
     }
   }
+
+#calendar{
+  height: 95vh;
+}
   

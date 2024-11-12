@@ -5,15 +5,17 @@
   <link rel="stylesheet" href="receptionistHome.css">
 </head>
 <body>
-  <button type="button" onclick="window.location.href='../index.html'">Logout</button>
+  <button type="button" id="logout" onclick="window.location.href='../index.html'">Logout</button>
+  <div class="header-container">
+      <h1>Clinic Management System</h1>
+  </div>
   <div class="receptionist-container">
-    <h1><span class="title-overlay">Receptionist Portal</span></h1>
-    <div class="widget patient-widget">
-      <h2 class="overlay-text">Create New Patient</h2>
+    <div class="widget" id="create-patient">
+      <h3>Create New Patient</h3><br>
       <button onclick="window.location.href='createPatient.html'">Enter</button>
     </div>
-    <div class="widget appointment-widget">
-      <h2 class="overlay-text">Create New Appointment</h2>
+    <div class="widget" id="create-appointment">
+      <h3>Create New Appointment</h3><br>
       <button onclick="window.location.href='createAppointment.html'">Enter</button>
     </div>
   </div>

@@ -1,13 +1,13 @@
 /* General body styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Nunito', sans-serif;
     background-image: url('backgroundimage.png'); /* Add your image path here */
     background-size: 150vw 150vh;
     background-position: center;
     background-repeat: no-repeat;
     margin: 0;
     padding: 20px;
-    color: #333; /* Adjust text color for better contrast */
+    color: #333; /* Adjust text color for better contrast */    
 }
 
 /* Header styles */
@@ -15,6 +15,11 @@ header {
     display: flex;
     justify-content: center;
     margin-bottom: 40px;
+}
+
+#patientId{
+  height: 20px;
+  font-size: 1em;
 }
 
 h1 {
@@ -34,7 +39,7 @@ h1 {
 
 /* Each widget box */
 .widget {
-    width: 20vw;
+    width: 250px;
     margin-bottom: 15px;
     margin-left: auto;
     margin-right: auto;
@@ -58,6 +63,7 @@ h2 {
 
 button {
     background-color: #3498db;
+    font-family: 'Nunito', sans-serif;
     color: white;
     border: none;
     padding: 12px 20px;
@@ -71,8 +77,9 @@ button:hover {
 }
 
 .search-button {
-    padding: 5px 12px; /* Smaller padding for compact size */
-    font-size: 0.8em;   /* Reduced font size */
+    padding: 5px 18px; /* Smaller padding for compact size */
+    margin-left: 10px;
+    font-size: 1em;   /* Reduced font size */
   }
   
 
@@ -134,6 +141,11 @@ button:hover {
     text-align: center;
 }
 
+input{
+  font-family: 'Nunito', sans-serif;
+  width: 200px;
+}
+
 /* Sign-in form input fields */
 #info-modal input {
     width: 100%;
@@ -178,7 +190,7 @@ button:hover {
     }
 }
 
-.details-container {
+.details-container {  
     margin: 20px;
   }
   .details-field {

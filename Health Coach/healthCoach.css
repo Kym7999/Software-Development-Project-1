@@ -1,6 +1,6 @@
 /* General body styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Nunito', sans-serif;
     background-image: url('backgroundimage.png'); /* Add your image path here */
     background-size: 150vw 150vh;
     background-position: center;
@@ -58,6 +58,7 @@ h2 {
 
 button {
     background-color: #3498db;
+    font-family: 'Nunito', sans-serif;
     color: white;
     border: none;
     padding: 12px 20px;

@@ -7,12 +7,13 @@
 <body>
     <button type="button" onclick="window.location.href='nurseHome.html'">Back to Nurse Home</button>
     <h1>Patient Medical History</h1>
-    <label for="patient">Patient:</label>
-    <select id="patient" onchange="showMedicalHistory()">
-        <option value="">Select Patient</option>
-    </select><br><br>
+
         <div id="medicalHistory">
             <h2>Medical History</h2>
+            <label for="patient">Patient:</label>
+            <select id="patient" onchange="showMedicalHistory()">
+                <option value="">Select Patient</option>
+            </select>
             <table id="historyTable">
                 <thead>
                     <tr>

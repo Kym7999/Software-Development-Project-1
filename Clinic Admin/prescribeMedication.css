@@ -9,10 +9,14 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     min-height: 100vh;
-    font-family: Arial, sans-serif;
+    font-family: 'Nunito', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+input, select, button{
+    font-family: 'Nunito', sans-serif;
 }
 
 /* Form Container Styling */
