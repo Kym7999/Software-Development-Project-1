@@ -3,17 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Request Medication Refill</title>
-    <link rel="stylesheet" href="pharmacist.css">
+    <link rel="stylesheet" href="requestRefill.css">
 </head>
 <body>
     <button onclick="window.location.href='pharmacistHome.html'">Back to Home</button>
-    <h2>Request Medication Refill</h2>
+    <h1>Request Medication Refill</h1>
     <form id="requestRefillForm">
-        <label for="medicationName">Medication Name:</label>
-        <input type="text" id="medicationName" required>
+        <label for="patientName">Patien</label>
+        <label for="medicationName">Medication</label>
+        <label for="detailrefill">Detail</label>
         
-        <button type="submit">Request Refill</button>
+        <section class="action-buttons" id="action-buttons">
+            <button class="Approve-btn" onclick="ApproveRefill('Approve')">Approve</button>
+            <button class="Deny-btn" onclick="DenyRefill('Deny')">Deny</button>
+          </section>  
     </form>
-    <script src="pharmacist.js"></script>
+    <script src="requestRefill.js"></script>
 </body>
 </html>
+

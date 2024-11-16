@@ -23,14 +23,13 @@
   }
   
   .title {
-    color: #000000; /* Black color for the title */
+    color: #ffffff;
+    background-color: #2980b9;
+    padding: 15px 20px;
+    text-align: center;
+    border-radius: 8px;
     font-size: 28px;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    line-height: 1.2;
-    text-align: center; /* Center the title horizontally */
-    margin: 0; /* Ensure no extra margins */
-    width: 100%; /* Ensure full width for horizontal centering */
+    margin-top: 0px;
   }
   
   

@@ -21,20 +21,6 @@ h1 {
     margin-top: 0px;
 }
 
-/* Container for the main buttons */
-.pharmacist-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-h2 {
-    text-align: center;
-    color: #2980b9;
-    margin-bottom: 20px;
-}
-
 /* Button styling */
 button {
     font-family: 'Nunito', sans-serif;
@@ -78,4 +64,9 @@ label {
     align-self: flex-start;
 }
 
-
+/* Deny button styling */
+.Deny-btn {
+    background-color: rgb(199, 199, 199);
+    color: #111318;
+    border: 1px solid #2980b9;
+}
