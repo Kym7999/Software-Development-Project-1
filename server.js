@@ -15,7 +15,7 @@ const config = {
     host: 'MSI',
     user: 'root',
     password: 'admin',
-    database: 'SQLServer4ClinicApp2'
+    database: 'SQLServer4ClinicApp'
 };
 
 // Get all patients
