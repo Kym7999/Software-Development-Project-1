@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinic Management App</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>           
+    <button type="button" id="logout" onclick="window.location.href='../../loginStaff.html'">Logout</button>
+    <div class="header-container">
+        <h1>Clinic Management System</h1> 
+    </div> 
+    <h2>Welcome to the Doctor Portal</h2>
+    <div class="doctor-container">    
+        <div class="widget" id="patient-management">
+            <h3>Patient Management</h3><br>
+            <button onclick="window.location.href='../Show Patient/showPatient.html'">Enter</button>
+        </div>
+        <div class="widget" id="medication-management">
+            <h3>Medication Management</h3><br>
+            <button onclick="window.location.href='../Show Medication/showMedication.html'">Enter</button>
+        </div>
+        <div class="widget" id="medical-history">
+            <h3>Medical History</h3><br>
+            <button onclick="window.location.href='../View Patient Medical History/viewPatientMedicalHistory.html'">Enter</button>
+        </div>
+    </div>
+    
+    </main>
+    <script src="doctor.js"></script>
+</body>
+</html>

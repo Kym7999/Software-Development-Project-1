@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Appointment</title>
+  <link rel="stylesheet" href="createAppointment.css">
+</head>
+<body>
+  <button type="button" class="back-btn" onclick="window.location.href='../Home/home.html'">Back to Receptionist Home</button>
+  <div class="container">    
+    <h2>Add Appointment</h2>
+    <form id="createAppointment">
+      <label for="patient">Patient:</label>
+      <select id="patientSelect">        
+      </select><br>
+
+      <label for="doctor">Doctor:</label>
+      <select id="doctorSelect">        
+      </select>
+
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="time">Time:</label>
+      <input type="time" id="time" name="time" required>
+
+      <input type="submit" value="Add Appointment">
+    </form>
+  </div>
+  <script src="createAppointment.js"></script>
+</body>
+</html>

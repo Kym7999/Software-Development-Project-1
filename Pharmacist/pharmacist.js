@@ -1,4 +1,4 @@
-// Request Refill (Working)
+// Should be removed
 document.getElementById('requestRefillForm')?.addEventListener('submit', async (event) => {
     event.preventDefault();
     const medicationName = document.getElementById('medicationName').value;
@@ -50,7 +50,7 @@ function createOrderCard(order){
   button.classList.add('view-details-btn');
   button.textContent = 'View Details';
   button.onclick = () => {
-    window.location.href = `orderDetail.html?patientId=${order.patientId}&medicationId=${order.medicationId}`;
+    window.location.href = `../Order Details/orderDetail.html?patientId=${order.patientId}&medicationId=${order.medicationId}`;
   };
 
   card.appendChild(info);

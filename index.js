@@ -12,7 +12,7 @@ loginForm.addEventListener('submit', async (event) => {
     };
     
     try{
-        const response = await fetch('http://localhost:5000/login', {
+        const response = await fetch('http://localhost:5000/loginPatient', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -20,24 +20,15 @@ loginForm.addEventListener('submit', async (event) => {
         body: JSON.stringify(data)
         });            
 
-        const role = await response.json();                    
-        if(role.role === 'clinicAdmin'){
-            window.location.href = 'Clinic Admin/clinicAdminHome.html';
-        } else if (role.role === 'receptionist'){
-            window.location.href = 'Receptionist/receptionistHome.html';
-        } else if (role.role === 'patient'){
-            window.location.href = 'Patient/patientHome.html';
-        } else if (role.role === 'doctor'){
-            window.location.href = 'Doctor/doctorHome.html';
-        } else if (role.role === 'nurse'){
-            window.location.href = 'Nurse/nurseHome.html';
-        } else if (role.role === 'pharmacist'){
-            window.location.href = 'Pharmacist/pharmacistHome.html';
-        } else if (role.role === 'healthcoach'){
-            window.location.href = 'Health Coach/healthCoachHome.html';
+        const patient = await response.json();    
+        
+        if (patient != null){
+            sessionStorage.removeItem('patientId');
+            sessionStorage.setItem('patientId', patient);                      
+            window.location.href = 'Patient/Home/home.html';
         }
 
     } catch(error){
-        alert('Error: ' +  error);
+        alert('Email or Password Invalid');
     }    
 });

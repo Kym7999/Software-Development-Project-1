@@ -1,0 +1,99 @@
+
+
+/* General Styling */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../Images/backgroundimage2.png'); /* Similar background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;    
+    font-family: 'Nunito', sans-serif;
+}
+
+/* White Overlay Container */
+.content-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */    
+    padding: 20px;    
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 80px;    
+}
+
+/* Back Button Styling */
+button[type="button"] {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    font-family: 'Nunito', sans-serif;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+button[type="button"]:hover {
+    background-color: #2980b9;
+}
+
+/* Page Title Styling */
+h1 {
+    color: #2980b9;
+    font-size: 1.8em;
+    background-color: rgba(255, 255, 255, 0.8); /* White overlay around text */
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 0;
+}
+
+/* Medication List Styling */
+#medicationList, #refillRequests {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.medication-item, .refill-request-item {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .medication-name, .refill-id {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .medication-details, .refill-details {
+    font-size: 0.8em;
+    color: #666;
+    margin-bottom: 3px;
+    margin-left: 20px;
+  }
+  
+  .medication-stock {
+    color: #007bff;
+    margin-left: 20px;
+  }
+
+  .grid-container {
+    margin-top: 20px;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 20px; /* Adjust the gap as needed */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .medication-list, .refill-requests {
+    border: 1px solid black;
+    padding: 20px;
+  }
