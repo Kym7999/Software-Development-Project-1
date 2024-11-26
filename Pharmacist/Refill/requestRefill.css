@@ -1,0 +1,104 @@
+/* General styling */
+body {
+    font-family: 'Nunito', sans-serif;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+.title {
+    color: #ffffff;
+    background-color: #2980b9;
+    padding: 15px 20px;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 28px;
+    margin-top: 0px;
+  }
+
+
+
+  #backToHome {
+    background-color: #3498db;
+    font-family: 'Nunito', sans-serif;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 200px;
+    margin: 10px;
+  }
+  
+  #backToHome:hover {
+    background-color: #2980b9;
+    transform: scale(1.07);
+  }
+
+/* Button styling */
+.Approve-btn {
+    font-family: 'Nunito', sans-serif;
+    width: 100%; /* Make buttons full width */
+    max-width: 300px; /* Increase max width */
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 18px; /* Increase padding */
+    border-radius: 5px;
+    font-size: 18px; /* Increase font size */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    text-align: center;
+    margin: 15px 0; /* Add more space between buttons */
+}
+
+.Approve-btn:hover {
+    background-color: #2980b9;
+    transform: scale(1.07); /* Slightly larger scale on hover */
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+    gap: 15px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+label {
+    font-weight: bold;
+    color: #2980b9;
+    font-size: 16px;
+    align-self: flex-start;
+}
+
+/* Deny button styling */
+.Deny-btn {
+    font-family: 'Nunito', sans-serif;
+    width: 100%; /* Make buttons full width */
+    max-width: 300px; /* Increase max width */
+    border: none;
+    padding: 18px; /* Increase padding */
+    border-radius: 5px;
+    font-size: 18px; /* Increase font size */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    text-align: center;
+    margin: 15px 0; /* Add more space between buttons */
+    background-color: rgb(199, 199, 199);
+    color: #111318;
+    border: 1px solid #2980b9;
+}
+.Deny-btn:hover{
+    background-color: #e0e0e0;
+    transform: scale(1.07);
+}
