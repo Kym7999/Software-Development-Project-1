@@ -1,0 +1,113 @@
+/* General styling */
+body {
+    font-family: 'Nunito', sans-serif;
+    background-image: url('backgroundimage.png'); /* Adjust the path to your background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+.title {
+    color: #ffffff;
+    background-color: #2980b9;
+    padding: 15px 20px;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 28px;
+    margin-top: 0px;
+  }
+  #backToHome {
+    background-color: #3498db;
+    font-family: 'Nunito', sans-serif;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 200px;
+    margin: 10px;
+  }
+  
+  #backToHome:hover {
+    transform: scale(1.07);
+    background-color: #2980b9;
+  }
+
+/* Button styling */
+.confirm-btn {
+    font-family: 'Nunito', sans-serif;
+    width: 100%; /* Make buttons full width */
+    max-width: 300px; /* Increase max width */
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 18px; /* Increase padding */
+    border-radius: 5px;
+    font-size: 18px; /* Increase font size */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    text-align: center;
+    margin: 15px 0; /* Add more space between buttons */
+}
+
+.confirm-btn:hover {
+    background-color: #2980b9;
+    transform: scale(1.07); /* Slightly larger scale on hover */
+}
+
+/* Form styling */
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+/* Form styling */
+.medication-info {
+    display: flex; /* Flexbox for aligning label and value */
+    justify-content: space-between; /* Align the label and value with space in between */
+    width: 100%; /* Ensure it takes up the full width of the container */
+    margin-bottom: 15px; /* Space between items */
+  }
+  
+  label {
+    font-weight: bold;
+    color: #2980b9;
+    font-size: 16px;
+    width: 333px; /* Set a fixed width for the labels */
+    text-align: left; /* Align the text to the left */
+  }
+  
+  .medication-value {
+    flex-grow: 1; /* Allow the value to take the remaining space */
+    text-align: left; /* Align value text to the left */
+  }
+  
+
+.reject-btn {
+    font-family: 'Nunito', sans-serif;
+    width: 100%; /* Make buttons full width */
+    max-width: 300px; /* Increase max width */
+    border: none;
+    padding: 18px; /* Increase padding */
+    border-radius: 5px;
+    font-size: 18px; /* Increase font size */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    text-align: center;
+    background-color: rgb(199, 199, 199);
+    color: #111318;
+    border: 1px solid #2980b9;
+}
+.reject-btn:hover{
+    background-color: #e0e0e0;
+    transform: scale(1.07);
+}
