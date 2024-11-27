@@ -128,8 +128,9 @@ app.post('/add-medication-to-patient', async (req, res) => {
 // Get Staff Schedule by Id
 app.get('/get-schedules-by-id', async (req, res) => {
     try {
+        const { id } = req.query;
         const connection = await mysql.createConnection(config);
-        const [rows] = await connection.query('SELECT * FROM Schedules');
+        const [rows] = await connection.query('SELECT * FROM Schedules WHERE staffid = ?', id);        
         res.json(rows);
         connection.end();
     } catch (err) {
@@ -173,7 +174,7 @@ app.post('/loginStaff', async (req, res) => {
         const { email, password } = req.body;
         const connection = await mysql.createConnection(config);
 
-        const [rows] = await connection.query('SELECT role FROM Staff WHERE email = ? AND password = ?', [email, password]);
+        const [rows] = await connection.query('SELECT role, id FROM Staff WHERE email = ? AND password = ?', [email, password]);
 
         res.json(rows[0]);
 

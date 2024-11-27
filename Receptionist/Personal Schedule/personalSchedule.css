@@ -1,0 +1,226 @@
+/* General body styles */
+body {
+    font-family: 'Nunito', sans-serif;
+    background-image: url('../Images/backgroundimage.png');
+    background-size: 150vw 150vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 20px;
+    color: #333; /* Adjust text color for better contrast */
+  }
+  
+  /* Header styles */
+  header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  
+  h1 {
+    color: #ffffff;
+    background-color: #2980b9;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 5px;
+  }
+  
+  /* Widget container and widget styles */
+  .widget-container {
+    margin: auto;    
+    margin-top: 160px;
+    width: 70%;
+    display: flex;  
+    flex-wrap: wrap;
+    justify-content: center;  
+  }
+  
+  /* Each widget box */
+  .widget {
+    width: 200px;
+    margin: 10px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+  
+  .widget:hover {
+    transform: scale(1.05);
+  }
+  
+  h2 {
+    color: #2980b9;
+    margin-bottom: 15px;
+  }
+  
+  button {
+    background-color: #3498db;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Modal styles */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding-top: 60px;
+  }
+  
+  /* Modal content */
+  .modal-content {
+    background-color: #ffffff;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #2c3e50;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* Sign-in Form Styles */
+  #info-modal {
+    width: 100%;
+    max-width: 400px; /* Smaller width for the sign-in form */
+    margin: 0 auto;
+    background-color: #ffffff; /* White background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Sign-in form input fields */
+  #info-modal input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  /* Sign-in form button */
+  #info-modal button {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    background-color: #2980b9;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #info-modal button:hover {
+    background-color: #3498db;
+  }
+  
+  /* Doctor Portal Styles */
+  #doctor-portal .modal-content {
+    width: 60%;
+    max-width: 800px;
+    padding: 40px;
+  }
+  
+  #doctor-portal h2 {
+    text-align: center;
+    color: #2980b9;
+  }
+  
+  #doctor-portal .widget {
+    width: 48%;
+    margin: 20px 1%;
+    display: inline-block;
+    box-sizing: border-box;
+  }
+  
+  #doctor-portal button {
+    width: 100%;
+    background-color: #3498db;
+    padding: 15px 20px;
+    font-size: 16px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s;
+  }
+  
+  #doctor-portal button:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Responsive adjustments */
+  @media screen and (max-width: 768px) {
+    .widget-container {
+        grid-template-columns: 1fr 1fr;
+    }
+  
+    #doctor-portal .widget {
+        width: 100%;
+        margin: 10px 0;
+    }
+  
+    .modal-content {
+        width: 80%;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    #doctor-portal .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+  
+    #doctor-portal button {
+        font-size: 14px;
+    }
+  
+    #info-modal button {
+        font-size: 16px;
+    }
+  
+    #info-modal input {
+        font-size: 14px;
+    }
+  }
+
+#calendar{
+  height: 95vh;
+}
+  

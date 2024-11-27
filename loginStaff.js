@@ -18,9 +18,12 @@ loginForm.addEventListener('submit', async (event) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
-        });            
-
+        });                        
         const role = await response.json();                    
+        sessionStorage.removeItem('staffId');
+        sessionStorage.setItem('staffId', role.id);
+
+
         if(role.role === 'clinicAdmin'){
             window.location.href = 'Clinic Admin/Home/home.html';
         } else if (role.role === 'receptionist'){
