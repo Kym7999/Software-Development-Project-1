@@ -8,8 +8,6 @@ body {
     padding: 20px;
     color: #333;
 }
-
-/* Header and main title */
 .title {
     color: #ffffff;
     background-color: #2980b9;
@@ -20,17 +18,28 @@ body {
     margin-top: 0px;
   }
 
-/* Container for the main buttons */
-.pharmacist-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
 
+
+  #backToHome {
+    background-color: #3498db;
+    font-family: 'Nunito', sans-serif;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 200px;
+    margin: 10px;
+  }
+  
+  #backToHome:hover {
+    background-color: #2980b9;
+    transform: scale(1.07);
+  }
 
 /* Button styling */
-button {
+.Approve-btn {
     font-family: 'Nunito', sans-serif;
     width: 100%; /* Make buttons full width */
     max-width: 300px; /* Increase max width */
@@ -46,7 +55,7 @@ button {
     margin: 15px 0; /* Add more space between buttons */
 }
 
-button:hover {
+.Approve-btn:hover {
     background-color: #2980b9;
     transform: scale(1.07); /* Slightly larger scale on hover */
 }
@@ -72,4 +81,24 @@ label {
     align-self: flex-start;
 }
 
-
+/* Deny button styling */
+.Deny-btn {
+    font-family: 'Nunito', sans-serif;
+    width: 100%; /* Make buttons full width */
+    max-width: 300px; /* Increase max width */
+    border: none;
+    padding: 18px; /* Increase padding */
+    border-radius: 5px;
+    font-size: 18px; /* Increase font size */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    text-align: center;
+    margin: 15px 0; /* Add more space between buttons */
+    background-color: rgb(199, 199, 199);
+    color: #111318;
+    border: 1px solid #2980b9;
+}
+.Deny-btn:hover{
+    background-color: #e0e0e0;
+    transform: scale(1.07);
+}

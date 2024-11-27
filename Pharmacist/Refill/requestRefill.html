@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Request Medication Refill</title>
+    <link rel="stylesheet" href="requestRefill.css">
+</head>
+<body>
+    <button id="backToHome" onclick="window.location.href='../Home/Home.html'">Back</button>
+    <p class="title">Request Medication Refill</p>
+    
+    <form id="requestRefillForm">
+        <div id="submittedRequest" style="display:none;">
+            <h2>Submitted Request</h2>
+            <p><strong>Patient Name:</strong> <span id="displayPatientName"></span></p>
+            <p><strong>Medication:</strong> <span id="displayMedicationName"></span></p>
+            <p><strong>Quantity:</strong> <span id="displayQuantity"></span></p>
+        </div>
+        <section class="action-buttons" id="action-buttons">
+            <button class="Approve-btn" type="button" onclick="ApproveRefill()">Approve</button>
+            <button class="Deny-btn" type="button" onclick="DenyRefill()">Deny</button>
+        </section>  
+    </form>
+
+    <script src="requestRefill.js"></script>
+</body>
+</html>
