@@ -1,3 +1,5 @@
+//It's not working.
+
 // Global threshold for low stock
 const STOCK_THRESHOLD = 10;
 
