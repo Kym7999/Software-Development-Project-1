@@ -109,11 +109,11 @@ app.get('/get-medications-by-id', async (req, res) => {
 // Add Medication to Patient's record
 app.post('/add-medication-to-patient', async (req, res) => {
     try {
-        const { patientId, medicationId } = req.body;
+        const { patientId, medicationId, delivery } = req.body;
         const connection = await mysql.createConnection(config);
 
-        const insertQuery = 'INSERT INTO Prescriptions (patientId, medicationId, status) VALUES (?, ?, ?)';
-        const values = [patientId, medicationId, 'Pending'];
+        const insertQuery = 'INSERT INTO Prescriptions (patientId, medicationId, status, delivery) VALUES (?, ?, ?, ?)';
+        const values = [patientId, medicationId, 'Pending', delivery];
 
         await connection.query(insertQuery, values);
 
@@ -356,6 +356,18 @@ app.get('/getOrders', async (req, res) => {
     }
 })
 
+app.get('/get-prescriptions', async (req, res) => {
+    try {
+        const connection = await mysql.createConnection(config);
+        const [rows] = await connection.query('SELECT * FROM Prescriptions');
+        res.json(rows);
+        connection.end();
+    } catch (err) {
+        console.log('Error: ', err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
 app.put('/update-prescription-status', async (req, res) => {
     try {
         const { patientId, medicationId, status } = req.body;
@@ -414,6 +426,73 @@ app.post('/request-refill', async (req, res) => {
       res.status(500).send('Internal Server Error');
     }
   });
+
+app.post('/create-meal-plan', async (req, res) => {
+    try {
+        const { patientId, staffId,  targetCalories, nutrientGoals, foodsAvoid, hydrationGoals, notes } = req.body;
+        const connection = await mysql.createConnection(config);
+
+        const insertQuery = 'INSERT INTO MealPlan (patientId, staffId, targetCalories, nutrientGoals, foodsAvoid, hydrationGoals, notes) VALUES (?, ?, ?, ?, ?, ?, ?)';
+        const values = [patientId, staffId,  targetCalories, nutrientGoals, foodsAvoid, hydrationGoals, notes];
+
+        await connection.query(insertQuery, values);
+
+        res.json({ message: 'Meal Plan created successfully' });
+
+        connection.end();
+    } catch (err) {
+        console.log('Error: ', err);
+    }
+});
+
+app.get('/get-meal-plans', async (req, res) => {
+    try {
+        const { id } = req.query;
+        const connection = await mysql.createConnection(config);
+        const [rows] = await connection.query('SELECT * FROM MealPlan WHERE staffId = ?', id);
+        res.json(rows);
+        connection.end();
+    } catch (err) {
+        console.error('Error:', err);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+app.post('/update-meal-plan', async (req, res) => {
+    try {
+        const { id, patientId, targetCalories, nutrientGoals, foodsAvoid, hydrationGoals, notes } = req.body;
+        const connection = await mysql.createConnection(config);
+
+        const updateQuery = 'UPDATE MealPlan SET patientId = ?, targetCalories = ?, nutrientGoals = ?, foodsAvoid = ?, hydrationGoals = ?, notes = ? WHERE id = ?';
+        const values = [patientId, targetCalories, nutrientGoals, foodsAvoid, hydrationGoals, notes, id];
+
+        await connection.query(updateQuery, values);
+
+        res.json({ message: 'Meal Plan updated successfully' });
+
+        connection.end();
+    } catch (err) {
+        console.log('Error: ', err);
+    }
+});
+
+app.delete('/delete-meal-plan', async (req, res) => {
+    try {
+        const { id } = req.body;
+        const connection = await mysql.createConnection(config);
+
+        const deleteQuery = 'DELETE FROM MealPlan WHERE id = ?';
+        const values = [id];
+        
+        await connection.query(deleteQuery, values);
+
+        res.json({ message: 'Meal Plan deleted successfully' });
+
+        connection.end();
+    } catch (err) {
+        console.log('Error: ', err);
+    }
+});
 
 
 let server = app.listen(5000, function () {

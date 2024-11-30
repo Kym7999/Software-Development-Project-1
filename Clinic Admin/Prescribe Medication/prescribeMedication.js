@@ -64,6 +64,7 @@ const addMedicationToPatient = document.getElementById('addMedicationToPatient')
 addMedicationToPatient.addEventListener('click', () => {
     const selectedPatientID = patientSelect.value;
     const selectedMedicationID = medicationSelect.value;
+    const delivery = document.getElementById('delivery').value;    
     if(selectedMedicationID != 'na'){
         try{
             const response = fetch('http://localhost:5000/add-medication-to-patient', {
@@ -71,7 +72,7 @@ addMedicationToPatient.addEventListener('click', () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ patientId: selectedPatientID, medicationId: selectedMedicationID })
+            body: JSON.stringify({ patientId: selectedPatientID, medicationId: selectedMedicationID, delivery: delivery })
             });
             if(!response.ok){
                 alert('Prescribed successfully')
