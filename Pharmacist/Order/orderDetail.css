@@ -1,8 +1,6 @@
 /* General styling */
 body {
     font-family: 'Nunito', sans-serif;
-    background-image: url('backgroundimage.png'); /* Adjust the path to your background image */
-    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     margin: 0;

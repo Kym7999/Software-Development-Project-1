@@ -1,0 +1,86 @@
+/* General styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Header styling */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    background-color: #3498db;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+}
+
+/* Container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Load Programs button */
+.load-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 20px;
+}
+
+.load-button:hover {
+    background-color: #2980b9;
+}
+
+.load-button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+/* Program cards */
+.program-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.program-card h2 {
+    color: #2980b9;
+}
+
+.program-card p {
+    margin: 5px 0;
+}
+
+/* Back button styling */
+.back-button {
+    display: block;
+    margin: 20px auto;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #2980b9;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Plans</title>
+    <link rel="stylesheet" href="../Home/healthCoach.css">
+</head>
+<body>
+    <header>
+        <a href="../Home/home.html" class="back-button">Back to Health Coach Home</a>
+        <h1>Patient Meal Plans</h1>
+    </header>
+    
+    <div class="widget-container">
+        <div class="meal-plan-widget">
+            <h2>Create or Edit Meal Plan</h2>
+
+            <!-- Dropdown for Patient Selection -->
+            <label for="patientSelect">Select Patient:</label>
+            <select id="patientSelect">
+                <option value="" disabled selected>Select a patient</option>
+                <!-- Options will be dynamically generated -->
+            </select>
+
+            <label for="targetCalories">Target Calories (per day):</label>
+            <input type="number" id="targetCalories" name="targetCalories">
+
+            <label for="nutrientGoals">Nutrient Goals:</label>
+            <textarea id="nutrientGoals" name="nutrientGoals"></textarea>
+
+            <label for="foodsToAvoid">Food(s) to Avoid:</label>
+            <textarea id="foodsToAvoid" name="foodsToAvoid"></textarea>
+
+            <label for="hydrationGoals">Hydration Goals (liters per day):</label>
+            <input type="number" id="hydrationGoals" name="hydrationGoals" step="0.1">
+
+            <label for="notes">Notes:</label>
+            <textarea id="notes" name="notes"></textarea>
+
+            <!-- SAMPLE DATA COULD LOOK LIKE THIS -->
+            <!-- Target Calories: 2000,  Nutrient Goals: High Protein, Foods to Avoid: Spicy food-->
+            <!-- Hydation Goals (L per day): 2, Notes: Focus on portion control to manage weight loss-->
+
+            <!-- Buttons -->
+            <div class="button-group">
+            <button type="button" id="createButton">Create Meal Plan</button>
+            <p id="createMessage" class="message" style="color:green; display:none;">Meal Plan successfully created.</p>
+
+            <button type="button" id="updateButton">Update Meal Plan</button>
+            <p id="updateMessage" class="message" style="color:green; display:none;">Meal Plan successfully updated.</p>
+
+            <button type="button" id="deleteButton">Delete Meal Plan</button>
+            <p id="deleteMessage" class="message" style="color:red; display:none;">Meal Plan successfully deleted.</p>
+</div>
+
+    </div>
+
+    <!-- JavaScript File -->
+    <script src="mealPlans.js"></script>
+</body>
+</html>

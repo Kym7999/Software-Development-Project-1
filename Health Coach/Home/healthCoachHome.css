@@ -1,0 +1,142 @@
+/* General body styles */
+body {
+    font-family: 'Nunito', sans-serif;
+    background-image: url('../../backgroundimage.png'); /* Add your image path here */
+    background-size: 150vw 150vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 20px;
+    color: #333; /* Adjust text color for better contrast */    
+}
+
+/* Header styles */
+header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    color: #ffffff;
+    background-color: #2980b9;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* Widget container and widget styles */
+.widget-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* Each widget box */
+.widget {
+    width: 250px;
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.widget:hover {
+    transform: scale(1.05);
+}
+
+h2 {
+    color: #2980b9;
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: #3498db;
+    font-family: 'Nunito', sans-serif;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .widget-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .widget {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+/* Container for details */
+.details-container {  
+    margin: 20px;
+}
+
+/* Detail fields */
+.details-field {
+    margin-bottom: 15px;
+}
+
+.details-field label {
+    font-weight: bold;
+    display: inline-block;
+    width: 150px;
+}
+
+/* Additional button styles */
+.edit-button {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.save-button {
+    display: none;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* Hidden input fields */
+.allergies-input {
+    display: none;
+}
+
+/* Success messages */
+.success-message {
+    color: green;
+    font-weight: bold;
+    display: none;
+    margin-top: 10px;
+}
+
+/* Search container */
+.search-container {
+    margin: 20px;
+}
+
+.search-results {
+    display: none;
+    margin-top: 20px;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}

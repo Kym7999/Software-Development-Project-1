@@ -1,74 +1,106 @@
-showPatient();
-async function showPatient() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const patientId = urlParams.get('patientId');
-  
-    const response = await fetch(`http://localhost:5000/get-patient-by-id?id=${patientId}`);
-  
-    if (!response.ok) {
-      throw new Error(`Failed to fetch patient: ${response.statusText}`);
-    }
-  
-    const patient = await response.json();
-    document.getElementById('patient-id').textContent = patient.id;
-    document.getElementById('patient-name').textContent = patient.name;
-    document.getElementById('patient-dob').textContent = patient.dob;
-    document.getElementById('patient-allergies').textContent = patient.allergies;
-}
-  
-showMedication();
-async function showMedication() {
-const urlParams = new URLSearchParams(window.location.search);
-const medicationId = urlParams.get('medicationId');
 
-const response = await fetch(`http://localhost:5000/get-medications-by-id?id=${medicationId}`);
 
-if (!response.ok) {
-    throw new Error(`Failed to fetch medication: ${response.statusText}`);
+
+const orderCardsContainer = document.getElementById('order-cards-container');
+getOrders();
+async function getOrders(){
+  
+  try{
+    const response = await fetch('http://localhost:5000/getOrders', {
+      method: 'GET',
+      headers: { 'Content-Type' : 'application/json' }      
+    });
+
+    const orders = await response.json();
+    orders.forEach(order => {
+      const card = createOrderCard(order);
+      orderCardsContainer.appendChild(card);
+    });
+  } catch (error) {
+    console.error('Error: ', error);
+  }
 }
 
-const medication = await response.json();
-document.getElementById('medication-id').textContent = medication[0].id;
-document.getElementById('medication-name').textContent = medication[0].name;
-document.getElementById('medication-type').textContent = medication[0].type;
-document.getElementById('medication-dosage').textContent = medication[0].dosage;
-document.getElementById('medication-form').textContent = medication[0].form;
-document.getElementById('medication-stock').textContent = medication[0].stock;
+function createOrderCard(order){
+  const card = document.createElement('div');
+  card.classList.add('order-card');
+  const info = document.createElement('div');
+  info.classList.add('order-info');
+  info.innerHTML = `
+    <p class="order-name">Patient ID: ${order.patientId}</p>
+    <p class="order-details">Medication ID: ${order.medicationId}</p>    
+  `;
+  const button = document.createElement('button');
+  button.classList.add('view-details-btn');
+  button.textContent = 'View Details';
+  button.onclick = () => {
+    window.location.href = `orderDetail.html?patientId=${order.patientId}&medicationId=${order.medicationId}`;
+  };
+
+  card.appendChild(info);
+  card.appendChild(button);
+
+  return card;
 }
 
-async function updateOrder(status) {
-    const urlParams = new URLSearchParams(window.location.search);
-    const patientId = urlParams.get('patientId');
-    const medicationId = urlParams.get('medicationId');    
-    
-    const updateData = {
-        patientId,
-        medicationId,
-        status
-    };
+// Cancel- Reject Order 
+document.addEventListener('DOMContentLoaded', () => {
+  // Get the Order ID from the order details container
+  const orderDetails = document.getElementById('orderDetails');
+  const orderId = orderDetails ? orderDetails.getAttribute('data-order-id') : null;
+
+  // Check if Order ID exists
+  if (!orderId) {
+    console.error('Order ID not found!');
+    return;
+  }
+  
+
+  // Handle Confirm Order button click
+  document.querySelector('.confirm-btn')?.addEventListener('click', async (event) => {
+    event.preventDefault();  // Prevent the default button behavior
+
+    const id = { OrderId: orderId };
 
     try {
-        // Send PUT request to update prescription status
-        const response = await fetch('http://localhost:5000/update-prescription-status', {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(updateData)
-        });
-  
-        // Check if response was successful (status code 2xx)
-        if (response.ok) {
-            // If successful, alert with the success message
-            alert('Prescription status updated successfully');
-        } else {
-            // If not successful, alert with the error message
-            const errorMessage = await response.text(); // Get the error message from the server response
-            alert(`Error updating prescription: ${errorMessage}`);
-        }
+      const response = await fetch('http://localhost:5000/confirmOrder', {
+        method: 'POST',  // Assuming confirm order is a POST request
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(id)
+      });
+
+      if (response.ok) {
+        alert('Order Confirmed successfully');
+      } else {
+        alert('Error confirming order');
+      }
     } catch (error) {
-        // Catch and log any network or other errors
-        console.error('Error:', error);
-        alert('An error occurred while updating the prescription status.');
+      console.error('Error:', error);
+      alert('Failed to confirm the order');
     }
-}
+  });
 
+  // Handle Reject Order button click
+  document.querySelector('.reject-btn')?.addEventListener('click', async (event) => {
+    event.preventDefault();  // Prevent the default button behavior
 
+    const id = { OrderId: orderId };
+
+    try {
+      const response = await fetch('http://localhost:5000/rejectOrder', {
+        method: 'DELETE',  // Assuming reject order is a DELETE request
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(id)
+      });
+
+      if (response.ok) {
+        alert('Rejected Order successfully');
+      } else {
+        alert('Error rejecting order');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Failed to reject the order');
+    }
+  });
+});
