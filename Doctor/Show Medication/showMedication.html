@@ -14,11 +14,13 @@
         
         <form id="medication-form">
             <input type="text" id="med-name" placeholder="Medication Name" required>
+            <input type="text" id="patient-name" placeholder="Enter Patient Name" required>
             <input type="text" id="med-type" placeholder="Type" required>
             <input type="text" id="med-dosage" placeholder="Dosage" required>
             <input type="number" id="med-stock" placeholder="Stock" required>
             <input type="text" id="med-form" placeholder="Form (tablet/liquid/injection)" required>
             <button type="button" onclick="addMedication()">Add Medication</button>
+            <button type="button" onclick="deleteMedication()">Delete Medication</button>
         </form>
     </div>
     

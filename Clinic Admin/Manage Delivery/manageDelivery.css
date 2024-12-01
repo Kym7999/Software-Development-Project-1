@@ -1,15 +1,33 @@
 
 
-/* General Styling */
+
+/**
 body {
     margin: 0;
     padding: 0;
-    background-image: url('../Images/backgroundimage2.png'); /* Similar background image */
+    background-image: url('../Images/backgroundimage2.png');  Similar background image 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;    
     font-family: 'Nunito', sans-serif;
 }
+*/
+
+
+/* Fixed background page issue for manage delivery page */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Ensure the body takes up the full viewport height */
+  background-image: url('../Images/backgroundimage2.png'); /* Similar background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Fix the background image to cover the entire page */
+  font-family: 'Nunito', sans-serif;
+}
+
+
 
 /* White Overlay Container */
 .content-container {

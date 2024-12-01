@@ -168,6 +168,57 @@ button:hover {
 
 }
 
+
+
+/* Specific Widget Styling for View Wellness Progress */
+#view-wellness-progress {
+    background-image: url('../Images/medicationstock.png'); /* Add an appropriate image for this widget */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    position: relative;
+    max-width: 250px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+/* Widget Header Styling */
+#view-wellness-progress h3 {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    color: #fff;
+}
+
+/* Hover Effect */
+#view-wellness-progress:hover {
+    transform: scale(1.05);
+}
+
+/* Button Styling */
+#view-wellness-progress button {
+    background-color: #3498db;
+    font-family: 'Nunito', sans-serif;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#view-wellness-progress button:hover {
+    background-color: #2980b9;
+}
+
+
+
+
+
 /* Responsive Adjustments */
 @media screen and (max-width: 768px) {
     .widget-container {

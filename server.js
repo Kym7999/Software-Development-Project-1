@@ -331,6 +331,29 @@ app.post('/add-medication', async (req, res) => {
     }
 });
 
+
+app.delete('/delete-medication', async (req, res) => {
+    try {
+        const { medicationName } = req.body;
+        const connection = await mysql.createConnection(config);
+
+        const deleteQuery = 'DELETE FROM Medications WHERE name = ?';
+        const values = [medicationName];
+
+        await connection.query(deleteQuery, values);
+
+        res.json({ message: 'Medication deleted successfully' });
+
+        connection.end();
+    } catch (err) {
+        console.log('Error: ', err);
+    }
+});
+
+
+
+
+
 app.get('/get-patient-medical-history', async (req, res) => {
     try {
         const { id } = req.query;
