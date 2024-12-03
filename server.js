@@ -12,7 +12,7 @@ app.use(cors({
 app.use(bodyParser.json());
 
 const config = {
-    host: 'MSI',
+    host: 'localhost',
     user: 'root',
     password: 'admin',
     database: 'SQLServer4ClinicApp'
@@ -334,12 +334,12 @@ app.post('/add-medication', async (req, res) => {
 
 app.delete('/delete-medication', async (req, res) => {
     try {
-        const { medicationName } = req.body;
+        const { name } = req.body;
         const connection = await mysql.createConnection(config);
 
         const deleteQuery = 'DELETE FROM Medications WHERE name = ?';
-        const values = [medicationName];
-
+        const values = [name];
+        console.log(name);
         await connection.query(deleteQuery, values);
 
         res.json({ message: 'Medication deleted successfully' });
