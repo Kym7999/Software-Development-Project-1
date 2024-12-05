@@ -20,11 +20,10 @@ loginForm.addEventListener('submit', async (event) => {
         body: JSON.stringify(data)
         });            
 
-        const patient = await response.json();    
-        
+        const patient = await response.json();            
         if (patient != null){
             sessionStorage.removeItem('patientId');
-            sessionStorage.setItem('patientId', patient);                      
+            sessionStorage.setItem('patientId', patient.id);                      
             window.location.href = 'Patient/Home/home.html';
         }
 

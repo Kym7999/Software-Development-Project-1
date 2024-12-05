@@ -1,60 +1,60 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const loadProgramsButton = document.getElementById('loadProgramsButton');
-    const programsContainer = document.getElementById('programsContainer');
+document.addEventListener('DOMContentLoaded', async () => {    
+    const mealplanContainer = document.getElementById('mealplanContainer');
+    const exerciseContainer = document.getElementById('exerciseContainer');
 
-    loadProgramsButton.addEventListener('click', async () => {
-        loadProgramsButton.disabled = true; // Disable button to prevent multiple clicks
-        loadProgramsButton.textContent = 'Loading...';
+    try {            
+        const patientId = sessionStorage.getItem('patientId');
+        const response = await fetch(`http://localhost:5000/get-mealplan-by-id?id=${patientId}`);
+        const mealplans = await response.json();        
 
-        try {
-            // Simulated fetch: replace with actual API endpoint when available
-            const programs = await fetchMockPrograms();
-
-            if (programs.length === 0) {
-                programsContainer.innerHTML = '<p>No prescribed wellness programs available.</p>';
-            } else {
-                programsContainer.innerHTML = ''; // Clear container before adding new content
-                programs.forEach(program => {
-                    const programCard = `
-                        <div class="program-card">
-                            <h2>${program.name}</h2>
-                            <p><strong>Goals:</strong> ${program.goals}</p>
-                            <p><strong>Steps:</strong> ${program.steps}</p>
-                            <p><strong>Duration:</strong> ${program.duration}</p>
-                        </div>
-                    `;
-                    programsContainer.innerHTML += programCard;
-                });
-            }
-        } catch (error) {
-            console.error('Error fetching programs:', error);
-            programsContainer.innerHTML = '<p>Error loading programs. Please try again later.</p>';
-        } finally {
-            loadProgramsButton.textContent = 'Load Programs';
-            loadProgramsButton.disabled = false;
+        const response2 = await fetch(`http://localhost:5000/get-exercise-by-id?id=${patientId}`);
+        const exercises = await response2.json();
+        
+        // For Meal Plans
+        if (mealplans.length === 0) {
+            mealplanContainer.innerHTML = '<p>You have no Meal Plans</p>';
+        } else {
+            mealplanContainer.innerHTML = '';
+            mealplanContainer.innerHTML += '<h2>Meal Plans:</h2>';
+            mealplans.forEach(mealplan => {
+                const mealplanCard = `
+                    <div class="program-card">
+                        <h2>Staff ID: ${mealplan.staffId}</h2>
+                        <p><strong>Target Calories:</strong> ${mealplan.targetCalories}</p>
+                        <p><strong>Nutrient Goals:</strong> ${mealplan.nutrientGoals}</p>
+                        <p><strong>Foods to Avoid:</strong> ${mealplan.foodsAvoid}</p>
+                        <p><strong>Hydration Goals (liters):</strong> ${mealplan.hydrationGoals}</p>
+                        <p><strong>Notes:</strong> ${mealplan.notes}</p>
+                    </div>
+                `;
+                mealplanContainer.innerHTML += mealplanCard;
+            });
         }
-    });
+
+        // For Exercises
+        if (exercises.length === 0) {
+            exerciseContainer.innerHTML = '<p>You have no Exercises</p>';
+        } else {
+            exerciseContainer.innerHTML = '';
+            exerciseContainer.innerHTML += '<h2>Exercises:</h2>';
+            exercises.forEach(exercise => {
+                const exerciseCard = `
+                    <div class="program-card">
+                        <h2>Staff ID: ${exercise.staffId}</h2>
+                        <p><strong>Fitness Goals:</strong> ${exercise.fitnessGoals}</p>                    
+                        <p><strong>Exercises:</strong> ${exercise.exercises}</p>
+                        <p><strong>Weekly Schedule:</strong> ${exercise.weeklySchedule}</p>
+                        <p><strong>Duration (minutes):</strong> ${exercise.duration}</p>
+                        <p><strong>Notes:</strong> ${exercise.notes}</p>
+                    </div>
+                `;
+                exerciseContainer.innerHTML += exerciseCard;
+            });
+        }
+
+    } catch (error) {        
+        mealplanContainer.innerHTML = '<p>Error loading programs. Please try again later.</p>';
+    }
 });
 
-// Simulated mock API response
-async function fetchMockPrograms() {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve([
-                {
-                    name: "Cardio Health Plan",
-                    goals: "Improve heart health through regular exercise.",
-                    steps: "Daily walks, weekly cardio sessions, monitor heart rate.",
-                    duration: "3 months"
-                },
-                {
-                    name: "Weight Management Program",
-                    goals: "Achieve healthy weight loss with proper diet.",
-                    steps: "Follow a meal plan, exercise regularly, track progress.",
-                    duration: "6 months"
-                }
-            ]);
-        }, 1000);
-    });
-}
 

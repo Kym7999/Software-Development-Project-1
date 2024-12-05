@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercise Plans</title>
     <link rel="stylesheet" href="../Home/healthCoach.css">
 </head>
+
 <body>
     <header>
         <a href="../Home/home.html" class="back-button">Back to Health Coach Home</a>
         <h1>Patient Exercise Plans</h1>
     </header>
-    
+
     <div class="widget-container">
-        <div class="meal-plan-widget">
+        <div class="exercise-plan-widget">
             <h2>Create or Edit Exercise Plan</h2>
+
+            <label for="exerciseSelect">Select Exercise Plan to Edit:</label>
+            <select id="exerciseSelect" onchange="setFields()"></select>
 
             <!-- Dropdown for Patient Selection -->
             <label for="patientSelect">Select Patient:</label>
-            <select id="patientSelect">
-                <option value="" disabled selected>Select a patient</option>
-                <!-- Options will be dynamically generated -->
-            </select>
+            <select id="patientSelect"></select>
 
             <label for="fitnessGoals">Fitness Goals:</label>
             <textarea id="fitnessGoals" name="fitnessGoals"></textarea>
@@ -38,25 +40,20 @@
             <label for="notes">Notes:</label>
             <textarea id="notes" name="notes"></textarea>
 
-            <!-- SAMPLE DATA COULD LOOK LIKE THIS -->
-            <!-- Fitness Goals: Improve cardiovascular endurance, Exercises: Pushups, Weekly Schedule, Mondays and Thursdays -->
-            <!-- Duration: 30 mins, Notes: Avoid heavy lifting due to prior shoulder injury-->
-
-            <!-- Buttons -->
             <div class="button-group">
-            <button type="button" id="createButton">Create Exercise Plan</button>
-            <p id="createMessage" class="message" style="color:green; display:none;">Exercise Plan successfully created.</p>
+                <button type="button" id="createButton">Create Exercise Plan</button>
+                <p id="createMessage" class="message" style="color:green; display:none;">Exercise Plan successfully created.</p>
 
-            <button type="button" id="updateButton">Update Exercise Plan</button>
-            <p id="updateMessage" class="message" style="color:green; display:none;">Exercise Plan successfully updated.</p>
+                <button type="button" id="updateButton">Update Exercise Plan</button>
+                <p id="updateMessage" class="message" style="color:green; display:none;">Exercise Plan successfully updated.</p>
 
-            <button type="button" id="deleteButton">Delete Exercise Plan</button>
-            <p id="deleteMessage" class="message" style="color:red; display:none;">Exercise Plan successfully deleted.</p>
-</div>
+                <button type="button" id="deleteButton">Delete Exercise Plan</button>
+                <p id="deleteMessage" class="message" style="color:red; display:none;">Exercise Plan successfully deleted.</p>
+            </div>
 
-    </div>
+        </div>
 
-    <!-- JavaScript File -->
-    <script src="exercisePlans.js"></script>
+        <script src="exercisePlans.js"></script>
 </body>
+
 </html>
