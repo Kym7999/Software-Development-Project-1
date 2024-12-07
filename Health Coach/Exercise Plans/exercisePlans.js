@@ -138,7 +138,7 @@ function displayExercises(exercises) {
     exercises.forEach(exercise => {
         const option = document.createElement('option');        
         option.value = exercise.id;
-        option.textContent = 'Patient ID: ' + exercise.patientId + ' | Meal Plan ID: ' + exercise.id;
+        option.textContent = 'Patient ID: ' + exercise.patientId + ' | Exercise ID: ' + exercise.id;
         exerciseSelect.appendChild(option);
     });
 }

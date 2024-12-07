@@ -1,3 +1,6 @@
+-- We are not using this file in our project, this is used in MySQL Workbench to create all tables at once
+-- and for adding data into our tables
+
 CREATE DATABASE SQLServer4ClinicApp;
 USE SQLServer4ClinicApp;
 
@@ -53,21 +56,23 @@ CREATE TABLE Prescriptions (
     patientId INT,
     medicationId INT,
     status VARCHAR(100),    
+    delivery VARCHAR(100),
     FOREIGN KEY (patientId) REFERENCES Patients(id),
     FOREIGN KEY (medicationId) REFERENCES Medications(id)
 );
 
-INSERT INTO Prescriptions (patientId, medicationId, status) VALUES
-(1, 10, 'Pending'),
-(2, 9, 'Pending'),
-(3, 8, 'Pending'),
-(4, 7, 'Pending'),
-(5, 6, 'Pending'),
-(6, 5, 'Pending'),
-(7, 4, 'Pending'),
-(8, 3, 'Pending'),
-(9, 2, 'Pending'),
-(10, 1, 'Pending');
+
+INSERT INTO Prescriptions (patientId, medicationId, status, delivery) VALUES
+(1, 25, 'Pending', 'Delivery'),
+(2, 26, 'Pending', 'In-Person'),
+(3, 27, 'Pending', 'Delivery'),
+(4, 28, 'Pending', 'Delivery'),
+(5, 29, 'Pending', 'In-Person'),
+(6, 30, 'Pending', 'In-Person'),
+(7, 31, 'Pending', 'Delivery'),
+(8, 32, 'Pending', 'In-Person'),
+(9, 33, 'Pending', 'Delivery'),
+(10, 34, 'Pending', 'Delivery');
 
 CREATE TABLE Staff(
 	id INT AUTO_INCREMENT PRIMARY KEY,
@@ -86,8 +91,6 @@ INSERT INTO Staff (role, name, email, password) VALUES ('nurse', 'Nurse Team 3',
 INSERT INTO Staff (role, name, email, password) VALUES ('pharmacist', 'Pharmacist Team 3', 'pharmacist@gmail.com','password');
 INSERT INTO Staff (role, name, email, password) VALUES ('healthcoach', 'Health Coach Team 3', 'healthcoach@gmail.com','password');
 
-
-
 CREATE TABLE Schedules(
 	id INT AUTO_INCREMENT PRIMARY KEY,
     staffid INT,
@@ -96,20 +99,31 @@ CREATE TABLE Schedules(
 	end_time TIME,
 	FOREIGN KEY (staffid) REFERENCES Staff(id)
 ); 
-    
-INSERT INTO Schedules (staffid, date, start_time, end_time)
-VALUES
-	(1, '2024-11-07', '09:00:00', '17:00:00'),
-	(2, '2024-11-07', '10:00:00', '16:00:00'),
-	(3, '2024-11-08', '08:00:00', '12:00:00'),
-	(4, '2024-11-08', '13:00:00', '17:00:00');
-    
-INSERT INTO Schedules (staffid, date, start_time, end_time)
-VALUES
-	(1, '2024-11-09', '06:00:00', '14:00:00'),
-	(2, '2024-11-09', '07:00:00', '13:00:00'),
-	(3, '2024-11-10', '09:00:00', '15:00:00'),
-	(4, '2024-11-10', '05:00:00', '12:00:00');
+
+INSERT INTO Schedules (staffid, date, start_time, end_time) VALUES
+(1, '2024-11-27', '09:00:00', '17:00:00'),
+(2, '2024-11-28', '10:00:00', '18:00:00'),
+(3, '2024-11-29', '11:00:00', '19:00:00'),
+(4, '2024-11-30', '09:30:00', '17:30:00'),
+(5, '2024-12-01', '10:30:00', '18:30:00'),
+(6, '2024-12-02', '11:30:00', '19:30:00'),
+(8, '2024-12-04', '10:00:00', '18:00:00'),
+(9, '2024-12-05', '11:00:00', '19:00:00'),
+(1, '2024-12-06', '09:30:00', '17:30:00'),
+(2, '2024-12-07', '10:30:00', '18:30:00');
+
+INSERT INTO Schedules (staffid, date, start_time, end_time) VALUES
+(1, '2024-12-01', '09:00:00', '17:00:00'),
+(2, '2024-12-02', '10:00:00', '18:00:00'),
+(3, '2024-12-01', '11:00:00', '19:00:00'),
+(4, '2024-12-03', '09:30:00', '17:30:00'),
+(5, '2024-12-04', '10:30:00', '18:30:00'),
+(6, '2024-12-02', '11:30:00', '19:30:00'),
+(8, '2024-12-06', '10:00:00', '18:00:00'),
+(9, '2024-12-06', '11:00:00', '19:00:00'),
+(1, '2024-12-02', '09:30:00', '17:30:00'),
+(2, '2024-12-05', '10:30:00', '18:30:00');
+
     
 
 CREATE TABLE Appointment(
@@ -127,10 +141,10 @@ CREATE TABLE RefillRequests (
     medication_id INT NOT NULL,
     patient_id  INT NOT NULL,
     quantity INT NOT NULL,
+    status VARCHAR(100),
     FOREIGN KEY (medication_id) REFERENCES Medications(id),
     FOREIGN KEY (patient_id) REFERENCES Patients(id)
 );
-
 
 INSERT INTO RefillRequests (medication_id, patient_id, quantity)
 VALUES
@@ -196,17 +210,39 @@ VALUES
   (10, '2023-08-15', 'Minor Skin Infection', 'Redness, itching on arm', 'Topical antibiotic cream', 'Skin infection cleared up with treatment'),
   (10, '2020-01-01', 'Headache', 'Throbbing pain in head', 'Over-the-counter pain medication', 'Headache resolved with medication');
   
-  
-  
-  
--- USE SQLServer4ClinicApp;
+
+CREATE TABLE MealPlan(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    patientId INT,
+    staffId INT,
+    targetCalories INT,
+    nutrientGoals TEXT,
+    foodsAvoid TEXT,
+    hydrationGoals DECIMAL,
+    notes TEXT
+);
+
+CREATE TABLE ExercisePlan(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    patientId INT, 
+    staffId INT,
+	fitnessGoals TEXT,
+    exercises TEXT,
+    weeklySchedule TEXT,
+    duration INT, 
+    notes TEXT
+);
+
+USE SQLServer4ClinicApp;
 -- SHOW TABLES;
 
--- SELECT * FROM STAFF;
--- SELECT * FROM SCHEDULES;
--- SELECT * FROM REFILLREQUESTS;
--- SELECT * FROM PRESCRIPTIONS;
--- SELECT * FROM PATIENTS;
--- SELECT * FROM MEDICATIONS;
--- SELECT * FROM MEDICALHISTORY;
--- SELECT * FROM APPOINTMENT;
+SELECT * FROM STAFF;
+SELECT * FROM SCHEDULES;
+SELECT * FROM REFILLREQUESTS;
+SELECT * FROM PRESCRIPTIONS;
+SELECT * FROM PATIENTS;
+SELECT * FROM MEDICATIONS;
+SELECT * FROM MEDICALHISTORY;
+SELECT * FROM APPOINTMENT;
+SELECT * FROM MealPlan;
+SELECT * FROM ExercisePlan;

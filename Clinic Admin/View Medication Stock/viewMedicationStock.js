@@ -47,6 +47,7 @@ function displayRefillRequests(refillRequests) {
           <div class="refill-details">
             <div class="refill-medication-id">Medication ID: ${refillRequest.medication_id}</div>
             <div class="refill-patient-id">Patient ID: ${refillRequest.patient_id}</div>
+            <div class="refill-patient-id">Quantity: ${refillRequest.quantity}</div>
           </div>
         `;
 

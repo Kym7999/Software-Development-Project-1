@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 async function getSchedules(){
-    const response = await fetch('http://localhost:5000/get-schedules-by-id');
+    const response = await fetch('http://localhost:5000/get-schedules?id=' + sessionStorage.getItem('staffId'));
     schedule = await response.json();  
     const events = schedule.map(event => ({
         title: 'Staff ' + event.staffid + ' Schedule',

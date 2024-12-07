@@ -139,6 +139,19 @@ app.get('/get-schedules-by-id', async (req, res) => {
     }
 });
 
+app.get('/get-schedules', async (req, res) => {
+    try {
+        const { id } = req.query;
+        const connection = await mysql.createConnection(config);
+        const [rows] = await connection.query('SELECT * FROM Schedules where staffid != ?', id);
+        res.json(rows);
+        connection.end();
+    } catch (err) {
+        console.error('Error:', err);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
 app.post('/create-appointment', async (req, res) => {
     try {
         const { patientId, doctorId, date, time } = req.body;
@@ -352,7 +365,7 @@ app.delete('/delete-medication', async (req, res) => {
 
         const deleteQuery = 'DELETE FROM Medications WHERE name = ?';
         const values = [name];
-        console.log(name);
+
         await connection.query(deleteQuery, values);
 
         res.json({ message: 'Medication deleted successfully' });
@@ -435,10 +448,40 @@ app.put('/update-prescription-status', async (req, res) => {
     }
 });
 
+app.delete('/delete-prescription', async (req, res) => {
+    try {
+        const { id } = req.body;
+        const connection = await mysql.createConnection(config);
+
+        const deleteQuery = 'DELETE FROM Prescriptions WHERE id = ?';
+        const values = [id];
+        
+        await connection.query(deleteQuery, values);
+
+        res.json({ message: 'Prescription deleted successfully' });
+
+        connection.end();
+    } catch (err) {
+        console.log('Error: ', err);
+    }
+});
+
 app.get('/get-refill-requests', async (req, res) => {
     try {
         const connection = await mysql.createConnection(config);
         const [rows] = await connection.query('SELECT * FROM RefillRequests');
+        res.json(rows);
+        connection.end();
+    } catch (err) {
+        console.error('Error:', err);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+app.get('/get-refill-requests-incomplete', async (req, res) => {
+    try {
+        const connection = await mysql.createConnection(config);
+        const [rows] = await connection.query('SELECT * FROM RefillRequests WHERE status = ?', ['Pending']);
         res.json(rows);
         connection.end();
     } catch (err) {
@@ -475,6 +518,24 @@ app.post('/request-refill', async (req, res) => {
       res.status(500).send('Internal Server Error');
     }
   });
+
+app.put('/update-refillrequest-status', async (req, res) => {
+    try {
+        const { patientId, medicationId, status } = req.body;
+        const connection = await mysql.createConnection(config);
+
+        const updateQuery = 'UPDATE RefillRequests SET status = ? WHERE patient_id = ? AND medication_id = ?';
+        const values = [status, patientId, medicationId];
+
+        await connection.query(updateQuery, values);
+
+        res.json({ message: 'Prescription updated successfully' });
+
+        connection.end();
+    } catch (err) {
+        console.log('Error: ', err);
+    }
+});
 
 app.post('/create-meal-plan', async (req, res) => {
     try {
@@ -633,6 +694,24 @@ app.get('/get-exercise-by-id', async (req, res) => {
     } catch (err) {
         console.log('Error: ', err);
         res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
+app.put('/update-medication-stock', async (req, res) => {
+    try {
+        const { id, stock } = req.body;
+        const connection = await mysql.createConnection(config);
+                
+        const updateQuery = 'UPDATE Medications SET stock = ? WHERE id = ?';
+        const values = [stock, id];
+
+        await connection.query(updateQuery, values);
+
+        res.json({ message: 'Stock updated successfully' });
+
+        connection.end();
+    } catch (err) {
+        console.log('Error: ', err);
     }
 });
 

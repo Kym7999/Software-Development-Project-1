@@ -4,7 +4,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: url('backgroundimage2.png'); /* Use similar background image */
+    background-image: url('../Images/backgroundimage2.png'); 
     background-size: cover;
     background-position: center;
     font-family: 'Nunito', sans-serif;

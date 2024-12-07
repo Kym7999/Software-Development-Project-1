@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Medication Assignment</title>
+        <link rel="stylesheet" href="prescribeMedication.css">
+    </head>
+    <body>
+        <button type="button" onclick="window.location.href='../Home/home.html'">Back to Doctor Home</button>        
+
+        <div class="form-container">
+            <h1>Medication Assignment</h1>        
+
+            <input type="text" id="patientSearch" placeholder="Search patients from the dropdown below">
+            <select id="patientSelect"></select>
+
+            <input type="text" id="medicationSearch" placeholder="Search medications from the dropdown below">
+            <select id="medicationSelect"></select>
+
+            <label for="delivery">Delivery</label>
+            <select id="delivery">
+                <option value="In-Person">In-Person</option>
+                <option value="Delivery">Delivery</option>
+            </select>
+
+            <button id="addMedicationToPatient">Add Medication To Patient</button>
+        </div>
+
+        <script src="prescribeMedication.js"></script>
+    </body>
+</html>

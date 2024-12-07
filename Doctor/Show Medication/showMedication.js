@@ -52,19 +52,15 @@ function resetMedicationForm() {
 function deleteMedication() {
     const medName = document.getElementById('med-name').value; // Get the value!
     try {
-        const response = fetch('http://localhost:5000/delete-medication', {
+        fetch('http://localhost:5000/delete-medication', {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ name: medName })
         });
-
-        if (response.ok) {
-            alert('Medication deleted successfully');
-        } else {
-            alert('Error deleting medication');
-        }
+        
+        alert('Medication deleted successfully');
     } catch (error) {
         alert('Error: ', error);
     }
