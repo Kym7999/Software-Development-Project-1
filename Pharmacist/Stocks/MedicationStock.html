@@ -10,34 +10,8 @@
     <button class="back-btn" onclick="window.location.href='../Home/Home.html'">Back</button>
     <p class="title">Medication Stock</p>
     
-    <div class="medication-stock">
-        <!-- Search functionality -->
-        <!-- <div class="search-container">
-            <div class="search-box">
-                <input type="text" id="search-input" placeholder="Search Medications">
-            </div>
-            <button class="search-btn" onclick="searchMedication()">Search</button>
-        </div> -->
-
-        <!-- Medication List -->
-        <ul class="medication-list">
-            <li class="medication-item" data-id="1">
-                <p>Lorazepam 2mg<br>Qty: <span class="med-stock">100</span>, Exp: 12/23</p>
-                <button class="update-btn">Update stock</button>
-            </li>
-            <li class="medication-item" data-id="2">
-                <p>Omeprazole 20mg<br>Qty: <span class="med-stock">10</span>, Exp: 12/23</p>
-                <button class="update-btn">Update stock</button>
-            </li>
-            <li class="medication-item" data-id="3">
-                <p>Ranitidine 150mg<br>Qty: <span class="med-stock">30</span>, Exp: 12/23</p>
-                <button class="update-btn">Update stock</button>
-            </li>
-            <li class="medication-item" data-id="4">
-                <p>Ativan 1mg<br>Qty: <span class="med-stock">50</span>, Exp: 12/23</p>
-                <button class="update-btn">Update stock</button>
-            </li>
-        </ul>
+    <div class="medication-stock">        
+        <ul id="medicationsList"></ul>
     </div>
 
     <script src="Stocks.js"></script>
